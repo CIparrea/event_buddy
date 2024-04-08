@@ -1,0 +1,123 @@
+.navBar{
+    background-color: black;
+    width: 100vw;
+    height: 8vh;
+    position: absolute;
+    top: 0;
+    z-index: 9999;
+    color:white;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1vw;
+    font-size: 1rem;
+}
+
+.logoBtn{
+    background: url(../../../public/img/logo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    aspect-ratio: 1/1;
+    background-color: transparent;
+    border: transparent;
+    padding: 0;
+    color:white;
+    font-size: 1rem;
+    transition: transform 0.2s ease-in;
+}
+
+.logoBtn:hover{
+    background: url(../../../public/img/logoGreen.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    aspect-ratio: 1/1;
+    background-color: transparent;
+    border: transparent;
+    padding: 0;
+    color:white;
+    font-size: 1rem;
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.navBarMenu {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 40%;
+    height: 100%;
+}
+
+.computerOptions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+}
+
+.navBarMenuBtn {
+    border: none;
+    background-color: transparent;
+    color: white;
+    margin: 0 3vh;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    transition: transform 0.2s ease-in;
+}
+
+.navBar button:hover {
+    color: greenyellow;
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.helpBtn{
+    background: url(../../../public/img/helpBtnWhite.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: transparent;
+    padding: 0;
+    color:white;
+    font-size: 1rem;
+    height: 60%;
+    aspect-ratio: 1/1;
+    transition: transform 0.2s ease-in;
+}
+
+.helpBtn:hover{
+    background: url(../../../public/img/helpBtnGreen.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: transparent;
+    padding: 0;
+    color:white;
+    font-size: 1rem;
+    height: 60%;
+    aspect-ratio: 1/1;
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+#noshow{
+    display: none;
+}
+
+@media (max-width: 760px) {
+    .computerOptions {
+        display: none;
+    }
+    .navBarMenu {
+        width: auto;
+    }
+}

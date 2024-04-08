@@ -1,0 +1,124 @@
+.footer{
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 8vh;
+    box-sizing: border-box;
+}
+
+.footerBtn{
+    height: 7vh;
+    width: 25%;
+    background-color: transparent;
+    border: transparent;
+    padding: 0;
+    padding-inline: 0;
+    padding-block: 0;
+    margin: 0;
+    color:white;
+    font-size: 1rem;
+    transition: transform 0.2s ease-in;
+    box-sizing: border-box;
+    background-color: pink;
+}
+
+
+#homeFooterBtn{
+    background: url(../../../public/img/homeBtnWhite.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    aspect-ratio: 1/1;
+    transition: 0.2s ease-in;
+    height: 7vh;
+    box-sizing: border-box;
+}
+
+#homeFooterBtn:hover{
+    background: url(../../../public/img/homeBtnGreen.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    aspect-ratio: 1/1;
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+    height: 7vh;
+    box-sizing: border-box;
+}
+
+#searchFooterBtn{
+    background: url(../../../public/img/searchBtnWhite.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 7vh;
+    box-sizing: border-box;
+    aspect-ratio: 1/1;
+    transition: 0.2s ease-in;
+}
+
+#searchFooterBtn:hover{
+    background: url(../../../public/img/searchBtnGreen.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 7vh;
+    box-sizing: border-box;
+    aspect-ratio: 1/1;
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+#favoritesFooterBtn{
+    background: url(../../../public/img/favoritesBtnWhite.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 7vh;
+    box-sizing: border-box;
+    aspect-ratio: 1/1;
+    transition: 0.2s ease-in;
+}
+
+#favoritesFooterBtn:hover{
+    background: url(../../../public/img/favoritesBtnGreen.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 7vh;
+    box-sizing: border-box;
+    aspect-ratio: 1/1;
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+#profileFooterBtn{
+    background: url(../../../public/img/profileBtnWhite.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 7vh;
+    box-sizing: border-box;
+    aspect-ratio: 1/1;
+    transition: 0.2s ease-in;
+}
+
+#profileFooterBtn:hover{
+    background: url(../../../public/img/profileBtnGreen.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 7vh;
+    box-sizing: border-box;
+    aspect-ratio: 1/1;
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+
+@media (min-width: 760px) {
+    .footer {
+        display: none;
+    }
+}
