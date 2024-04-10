@@ -4,17 +4,14 @@
     display: block;
     overflow: auto;
     box-sizing: border-box;
-    padding: 8vh 0 0 0;
+    padding: 12vh 0 0 0;
     color: #001D3D;
     display: flex;
     justify-content: top;
-    align-items: center;
-    flex-direction: column;
-    background-color: yellowgreen;
+    align-items: top;
+    flex-wrap: wrap;
 }
  
-
-
 
 
 @media (max-width: 760px) {
