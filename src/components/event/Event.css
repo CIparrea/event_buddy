@@ -1,0 +1,70 @@
+.eventDetailContainer{
+    height: 45vh;
+    width: 45vh;
+    margin: 0 3vh 5vh;
+    /* box-sizing: border-box; */
+    border-radius: 10px;
+    transition: 0.2s ease-in;
+    box-shadow: 3px 3px 5px rgba(128, 128, 128, 0.18);
+    padding: 0;
+    border: transparent;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.eventPicture{
+    width: 100%;
+    height: 50%;
+    background-color: yellowgreen;
+    border-radius: 10px 10px 0 0;
+}
+
+.eventDetailContainer:hover{
+    transform: scale(1.05);
+    transition: 0.2s ease-in-out;
+}
+
+.eventInformation h2, h3, h5, h4{
+    padding: 0;
+    margin: 0;
+}
+
+.eventInformation{
+    width: 45vh;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    justify-content: space-between;
+    flex-direction: column;
+    padding:1vh;
+    box-sizing: border-box;
+    color: #001D3D;
+}
+
+.heart{
+    background: url(../../../public/img/heart.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: black;
+    height: 8vh;
+    width: 8vh;
+    padding: 0;
+    border: transparent;
+}
+
+.heart:hover{
+    background: url(../../../public/img/heartRed.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.eventFooter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+}

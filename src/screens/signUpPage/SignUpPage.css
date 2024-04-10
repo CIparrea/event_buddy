@@ -87,7 +87,6 @@
     color: #001D3D;
   }
 
-
   @media (max-width: 760px) {
     .signUpPage{
         justify-content: start;
@@ -100,6 +99,4 @@
         border: transparent;
         box-shadow: none;
     }
-
-
 }

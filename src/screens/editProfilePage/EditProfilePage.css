@@ -5,5 +5,102 @@
     overflow: auto;
     box-sizing: border-box;
     padding: 8vh 0 0 0;
-    color: #001D3D;
+    color: #001D3D; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.editProfileContainer{
+    background-color: white;
+    height: 95%;
+    aspect-ratio: 0.8/1;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    border: 0.5vh solid rgba(128, 128, 128, 0.18);
+    box-shadow: 3px 3px 5px rgba(128, 128, 128, 0.18);
+    box-sizing: border-box;
+}
+
+.editProfileTitle{
+    width: 100%;
+}
+
+.editProfileForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+}
+
+.editPasswordForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+}
+
+.formLabel{
+    width: 100%;
+    text-align: left;
+}
+
+.formInput{
+    background-color: rgba(128, 128, 128, 0.4);
+    height: 5vh;
+    border: transparent;
+    width: 100%;
+    outline: none;
+    margin-bottom: 3vh;
+    padding: 0.5vh;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.formInput::placeholder{
+    color:#001d3d79
+}
+
+.editBtn{
+    background-color: black;
+    color:white;
+    width: 15vh;
+    height: 6vh;
+    border-radius: 10px;
+    transition: 0.2s ease-in;
+    font-weight: 200;
+    margin: 0 0 6vh 0;
+  }
+
+  .editBtn:hover{
+    background-color: yellowgreen;
+    color: black;
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+  }
+
+
+
+  @media (max-width: 760px) {
+    .editProfilePage{
+        justify-content: start;
+        align-items: center;
+        padding: 8vh 0;
+    }
+
+    .editProfileContainer{
+        height: 100%;
+        width: 100vw;
+        border: transparent;
+        box-shadow: none;
+    }
+
+
 }

@@ -6,4 +6,69 @@
     box-sizing: border-box;
     padding: 8vh 0 0 0;
     color: #001D3D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
+
+.userContainer{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    text-align: center;
+    border: 0.5vh solid rgba(128, 128, 128, 0.18);
+    box-shadow: 3px 3px 5px rgba(128, 128, 128, 0.18);
+    box-sizing: border-box;
+}
+
+.userPicture{
+    background: url(../../../public/img/userProfile.png);
+    height: 50vh;
+    aspect-ratio: 1/1;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.userTitle{
+    width: 100%;
+}
+
+.userEmail{
+    width: 100%;
+    color:#001d3db6;
+}
+
+.profileBtn{
+    background-color: black;
+    color:white;
+    width: 15vh;
+    height: 6vh;
+    border-radius: 10px;
+    transition: 0.2s ease-in;
+    margin: 2vh 2vh;
+    font-weight: 200;
+  }
+
+  .profileBtn:hover{
+    background-color: yellowgreen;
+    color: black;
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+  }
+
+  @media (max-width: 760px) {
+    .profilePage{
+        padding: 8vh 0;
+    }
+
+    .userContainer{
+        border: transparent;
+        box-shadow: none;
+        flex-direction: column;
+    }
+}
+

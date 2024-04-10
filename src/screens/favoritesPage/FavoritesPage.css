@@ -6,4 +6,26 @@
     box-sizing: border-box;
     padding: 8vh 0 0 0;
     color: #001D3D;
+    display: flex;
+    justify-content: top;
+    align-items: center;
+    flex-direction: column;
+    background-color: yellowgreen;
+}
+ 
+
+
+
+
+@media (max-width: 760px) {
+    .favoritesPage{
+        padding: 8vh 0;
+        background-color: white;
+    }
+
+    .favoritesContainer{
+        border: transparent;
+        box-shadow: none;
+        flex-direction: column;
+    }
 }

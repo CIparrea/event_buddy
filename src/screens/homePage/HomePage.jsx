@@ -1,13 +1,15 @@
 import React from 'react'
 import './HomePage.css'
 import Navbar from '../../components/navbar/Navbar.jsx'
+import Event from '../../components/event/Event.jsx'
 
 function HomePage() {
   return (
     <div className='homePage'>
       <Navbar show="show"/>
-      <div className='spotlight'></div>
-
+      <div className='spotlight'>
+        <h1 className='spotlightTitle'>SPOTLIGHT TITLE</h1>
+      </div>
       <div className='homeContent'>
         <div className='homeComponent'>
           <div className='category'>
@@ -15,12 +17,12 @@ function HomePage() {
             <h1 className='categoryTitle' > Music</h1>
           </div>
           <div className='homeCategory'>
-            
-            <div className='event'></div>
-            <div className='event'></div>
-            <div className='event'></div>
-            <div className='event'></div>
-            <div className='event'></div>
+            <Event />
+            <Event />
+            <Event />
+            <Event />
+            <Event />
+
             more...
             </div>  
         </div>
@@ -32,11 +34,11 @@ function HomePage() {
           </div>
           <div className='homeCategory'>
 
-            <div className='event'></div>
-            <div className='event'></div>
-            <div className='event'></div>
-            <div className='event'></div>
-            <div className='event'></div>
+            <Event />
+            <Event />
+            <Event />
+            <Event />
+            <Event />
             more...
             </div>  
         </div>
@@ -48,11 +50,11 @@ function HomePage() {
           </div>
           <div className='homeCategory'>
             
-            <div className='event'></div>
-            <div className='event'></div>
-            <div className='event'></div>
-            <div className='event'></div>
-            <div className='event'></div>
+            <Event />
+            <Event />
+            <Event />
+            <Event />
+            <Event />
             more...
             
             </div>  

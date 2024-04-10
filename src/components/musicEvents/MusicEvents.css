@@ -1,0 +1,9 @@
+.musicEventsDisplayPage{
+    margin: 0;
+    padding: 1.2vh 0 0 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: scroll;
+    justify-content: center;
+}
