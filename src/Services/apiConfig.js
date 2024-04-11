@@ -3,7 +3,7 @@ import axios from "axios";
 const getToken = () => {
   return new Promise((resolve) => {
     if (localStorage.getItem("token")) {
-      resolve('Bearer ${localStorage.getItem("token)}');
+      resolve(`Bearer ${localStorage.getItem("token")}`);
     } else {
       resolve(null);
     }

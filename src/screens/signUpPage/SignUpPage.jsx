@@ -45,8 +45,6 @@ function SignUpPage() {
     }
   };
 
-  const { firstName, lastName, email, password, passwordConfirmation } = form;
-
   return (
     <div className="signUpPage">
       <Navbar show="noshow" />
