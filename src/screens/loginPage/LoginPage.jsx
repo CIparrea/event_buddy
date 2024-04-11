@@ -14,8 +14,6 @@ function LoginPage() {
     errorMsg: "",
   });
 
-  const [user, setUser] = useState(null);
-
   const handleChange = (event) =>
     setForm({
       ...form,
@@ -24,8 +22,7 @@ function LoginPage() {
 
   const onLogIn = async (event) => {
     event.preventDefault();
-    let retrievedUser = await signIn(form);
-    setUser(retrievedUser);
+    await signIn(form);
     navigate("/");
   };
 
