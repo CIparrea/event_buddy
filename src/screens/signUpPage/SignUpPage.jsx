@@ -1,9 +1,9 @@
 import { useState } from "react";
-import "./SignUpPage.css";
 // import { Link } from 'react-router-dom'; Use this to setup redirect link to Sign In Page
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar.jsx";
 import { signUp } from "../../Services/users.js";
+import "./SignUpPage.css";
 
 function SignUpPage() {
   const navigate = useNavigate();
