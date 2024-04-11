@@ -1,34 +1,70 @@
-import React from 'react'
-import './LoginPage.css'
-import Navbar from '../../components/navbar/Navbar.jsx'
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import Navbar from "../../components/navbar/Navbar.jsx";
+import { signIn } from "../../Services/users.js";
+import "./LoginPage.css";
 
 function LoginPage() {
+  const navigate = useNavigate();
+
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+    isError: false,
+    errorMsg: "",
+  });
+
+  const [user, setUser] = useState(null);
+
+  const handleChange = (event) =>
+    setForm({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
+
+  const onLogIn = async (event) => {
+    event.preventDefault();
+    let retrievedUser = await signIn(form);
+    setUser(retrievedUser);
+    navigate("/");
+  };
+
   return (
-    <div className='loginPage'>
-    <Navbar show="noshow"/>
-    <div className='loginContainer'>
-      <h1 className='profileTitle'>Login</h1>
-      <form className='loginForm'>
-        <label className='formLabel'>e-mail:</label>
-        <input
-        className='formInput'
-        placeholder='Type your email...'
-        ></input>
-        <label className='formLabel'>Password:</label>
-        <input
-        className='formInput'
-        type='password'
-        placeholder='Enter your password...'
-        ></input>
-        <button className='formBtn'>Login</button>
-      </form>
-      <p className="registerHere">
-          Dont have an account? <Link to={"/signup"}><br/>Register Here</Link>
-      </p>
+    <div className="loginPage">
+      <Navbar show="noshow" />
+      <div className="loginContainer">
+        <h1 className="profileTitle">Login</h1>
+        <form onSubmit={onLogIn} className="loginForm">
+          <label className="formLabel">e-mail:</label>
+          <input
+            type="email"
+            name="email"
+            className="formInput"
+            placeholder="Type your email..."
+            onChange={handleChange}
+            required
+          ></input>
+          <label className="formLabel">Password:</label>
+          <input
+            className="formInput"
+            type="password"
+            name="password"
+            placeholder="Enter your password..."
+            onChange={handleChange}
+            required
+          ></input>
+          <button className="formBtn">Login</button>
+        </form>
+        <p className="registerHere">
+          Dont have an account?{" "}
+          <Link to={"/signup"}>
+            <br />
+            Register Here
+          </Link>
+        </p>
+      </div>
     </div>
-  </div>
-  )
+  );
 }
 
-export default LoginPage
+export default LoginPage;
