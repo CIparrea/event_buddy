@@ -1,13 +1,13 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './HomePage.css'
 import Navbar from '../../components/navbar/Navbar.jsx'
 import Event from '../../components/event/Event.jsx'
 import { useNavigate } from "react-router-dom";
 
 
-function HomePage({ userProfile }) {
+function HomePage({ userProfile, events, sportsEvents, musicEvents, showsEvents }) {
   const navigate = useNavigate();
-    
+
   function outerButtonClick() {
       //here needs to render the id of the event
       navigate("/events/1");
@@ -24,7 +24,7 @@ function HomePage({ userProfile }) {
       onClick={() => {
         outerButtonClick()
       }}
-      className='spotlight '>
+      className='spotlight'>
         <h1 className='spotlightTitle'>SPOTLIGHT TITLE</h1>
         <button 
           onClick={(event) => {
@@ -39,6 +39,11 @@ function HomePage({ userProfile }) {
             <h1 className='categoryTitle' > Music</h1>
           </div>
           <div className='homeCategory'>
+  {/* we will need to add the map on musicEvents 
+      {musicEvents.map((event)=>{
+        <Event event={event} key={event.id}/>
+      })}
+  */}
             <Event />
             <Event />
             <Event />
@@ -52,6 +57,11 @@ function HomePage({ userProfile }) {
             <h1 className='categoryTitle'> Sports</h1>
           </div>
           <div className='homeCategory'>
+  {/* we will need to add the map on sportsEvents 
+      {sportsEvents.map((event)=>{
+        <Event event={event} key={event.id}/>
+      })}
+  */}
             <Event />
             <Event />
             <Event />
@@ -65,7 +75,12 @@ function HomePage({ userProfile }) {
             <div className='categoryIcon' id='showsIcon'></div>
             <h1 className='categoryTitle'> Shows</h1>
           </div>
-          <div className='homeCategory'>       
+          <div className='homeCategory'>   
+  {/* we will need to add the map on showsEvents 
+      {showsEvents.map((event)=>{
+        <Event event={event} key={event.id}/>
+      })}
+  */}         
             <Event />
             <Event />
             <Event />

@@ -14,12 +14,65 @@ import React, { useState, useEffect } from "react";
 
 function App() {
   const [userProfile, setUserProfile] = useState(null);
+  const [events, setEvents] = useState({})
+  const [sportsEvents, setSportsEvents] = useState({})
+  const [musicEvents, setMusicEvents] = useState({})
+  const [showsEvents, setShowsEvents] = useState({})
   
+
+  useEffect(() => {
+    console.log("we're useEffect from home page")
+    const fetchEvents = async () =>{
+      console.log("we're fetching the events")
+      //here we will need to call the function from the services to pull data from db
+      // const eventsfetched = await getEvents()
+      // setEvents( eventsfetched )
+    }
+
+    const fetchSportsEvents = async () =>{
+      console.log("we're fetching the sports events")
+      //here we will need to call the function from the services to pull data from db
+      // const sportsEventsfetched = await getSportsEvents()
+      // setSportsEvents( sportsEventsfetched )
+    }
+
+    const fetchMusicEvents = async () =>{
+      console.log("we're fetching the music events")
+      //here we will need to call the function from the services to pull data from db
+      // const musicEventsfetched = await getMusicEvents()
+      // setMusicEvents( musicEventsfetched )
+    }
+
+    const fetchShowsEvents = async () =>{
+      console.log("we're fetching the shows events")
+      //here we will need to call the function from the services to pull data from db
+      // const showsEventsfetched = await getShowsEvents()
+      // setShowsEvents( showsEventsfetched )
+    }
+
+    fetchEvents()
+    fetchSportsEvents()
+    fetchMusicEvents()
+    fetchShowsEvents()
+  }, []);
+
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<HomePage userProfile={userProfile} />}/>
-        <Route path="/search" element={<SearchPage userProfile={userProfile}/>}/>
+        <Route path="/" element={<HomePage 
+        userProfile={userProfile} 
+        events={events} 
+        sportsEvents={sportsEvents} 
+        musicEvents={musicEvents} 
+        showsEvents={showsEvents} 
+        />}/>
+        <Route path="/search" element={<SearchPage 
+        userProfile={userProfile}
+        events={events} 
+        sportsEvents={sportsEvents} 
+        musicEvents={musicEvents} 
+        showsEvents={showsEvents} 
+        />}/>
         <Route path="/favorites" element={<FavoritesPage userProfile={userProfile}/>}/> 
         <Route path="/events/:id" element={<EventPage userProfile={userProfile}/>}/> 
         <Route path="/login" element={<LoginPage userProfile={userProfile} setUserProfile={setUserProfile}/>}/> 

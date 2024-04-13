@@ -7,7 +7,7 @@ import MusicEvents from '../../components/musicEvents/MusicEvents.jsx'
 import SportsEvents from '../../components/sportsEvents/SportsEvents.jsx'
 import ShowsEvents from '../../components/showsEvents/ShowsEvents.jsx'
 
-function SearchPage({userProfile}) {
+function SearchPage({userProfile, events, sportsEvents, musicEvents, showsEvents}) {
   return (
     <div className='searchPage'>
     <Navbar show="show" userProfile={userProfile}/>
@@ -41,22 +41,22 @@ function SearchPage({userProfile}) {
             <div className='eventsDisplay'>
             <TabPanel>
               <div>
-                <AllEvents />
+                <AllEvents events={events}/>
               </ div>
             </TabPanel>
             <TabPanel>
               <div>
-                <MusicEvents />
+                <MusicEvents musicEvents={musicEvents} />
               </ div>
             </TabPanel>
             <TabPanel >
               <div>
-                <SportsEvents />
+                <SportsEvents sportsEvents={sportsEvents} />
               </ div>
             </TabPanel>
             <TabPanel>
               <div>
-                <ShowsEvents />
+                <ShowsEvents showsEvents={showsEvents} />
               </ div>
             </TabPanel>
             </div>
