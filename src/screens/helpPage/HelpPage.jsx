@@ -7,6 +7,8 @@ function HelpPage({userProfile}) {
     <div className='helpPage'>
     <Navbar show="noshow" userProfile={userProfile}/>
     helpPage
+    <div className='ambreSide'>Ambre Tate</div>
+    <div className='cesarSide'>Cesar Iparrea</div>
   </div>
   )
 }

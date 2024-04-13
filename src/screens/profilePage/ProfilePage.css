@@ -13,13 +13,14 @@
 }
 
 .userContainer{
-    height: 100%;
-    width: 100%;
+    height: 60vh;
+    width: 70vw;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     text-align: center;
+    border-radius: 30px;
     border: 0.5vh solid rgba(128, 128, 128, 0.18);
     box-shadow: 3px 3px 5px rgba(128, 128, 128, 0.18);
     box-sizing: border-box;
@@ -69,6 +70,8 @@
         border: transparent;
         box-shadow: none;
         flex-direction: column;
+        width: 100%;
+        height: 100%;
     }
 }
 

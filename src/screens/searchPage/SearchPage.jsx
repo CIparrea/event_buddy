@@ -6,7 +6,7 @@ import AllEvents from '../../components/allEvents/AllEvents.jsx'
 import MusicEvents from '../../components/musicEvents/MusicEvents.jsx'
 import SportsEvents from '../../components/sportsEvents/SportsEvents.jsx'
 import ShowsEvents from '../../components/showsEvents/ShowsEvents.jsx'
-
+ 
 function SearchPage({userProfile, events, sportsEvents, musicEvents, showsEvents}) {
   return (
     <div className='searchPage'>

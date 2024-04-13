@@ -8,3 +8,11 @@
     justify-content: top;
     align-items: top;
 }
+
+@media (max-width: 760px) {
+    .musicEventsDisplayPage {
+        display: flex;
+        justify-content: center;
+        align-items: top;
+    }
+}
