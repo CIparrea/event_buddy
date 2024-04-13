@@ -3,6 +3,7 @@ import './HomePage.css'
 import Navbar from '../../components/navbar/Navbar.jsx'
 import Event from '../../components/event/Event.jsx'
 import { useNavigate } from "react-router-dom";
+import Credits from '../../components/credits/Credits.jsx';
 
 
 function HomePage({ userProfile, events, sportsEvents, musicEvents, showsEvents }) {
@@ -95,6 +96,7 @@ function HomePage({ userProfile, events, sportsEvents, musicEvents, showsEvents 
 
 
       </div>
+      <Credits />
   </div>
   )
 }
