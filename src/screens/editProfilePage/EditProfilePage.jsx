@@ -85,17 +85,17 @@ function EditProfilePage({userProfile, setUserProfile}) {
         <form 
         onSubmit={handleUpdatePasswordForm}
         className='editPasswordForm'>
-          <label className='formLabel'>Password:</label>
+          <label className='formLabel'>New password:</label>
           <input
           className='formInput'
           type='password'
-          placeholder='Enter your password...'
+          placeholder='Enter your new password...'
           ></input>
-          <label className='formLabel'>Confirm your password:</label>
+          <label className='formLabel'>Confirm your new password:</label>
           <input
           className='formInput'
           type='password'
-          placeholder='Confirm password...'
+          placeholder='Confirm new password...'
           ></input>
           <button 
           type='submit' 

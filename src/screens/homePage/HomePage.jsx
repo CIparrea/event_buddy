@@ -8,6 +8,10 @@ import { useNavigate } from "react-router-dom";
 function HomePage({ userProfile, events, sportsEvents, musicEvents, showsEvents }) {
   const navigate = useNavigate();
 
+
+  //Somewhere in here we need to fetch or get a random event for the spotlight section
+
+  
   function outerButtonClick() {
       //here needs to render the id of the event
       navigate("/events/1");
