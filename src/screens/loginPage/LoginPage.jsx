@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar.jsx";
-import { signIn } from "../../Services/users.js";
+import { signIn, verifyUser} from "../../Services/users.js";
 import "./LoginPage.css";
 
-function LoginPage() {
+function LoginPage({userProfile, setUserProfile}) {
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
@@ -24,11 +24,18 @@ function LoginPage() {
     event.preventDefault();
     await signIn(form);
     navigate("/");
+
+    const fetchUserProfile = async () => {
+      const user = await verifyUser();
+      setUserProfile(user);
+    };
+
+    fetchUserProfile();
   };
 
   return (
     <div className="loginPage">
-      <Navbar show="noshow" />
+      <Navbar show="noshow" userProfile={userProfile}/>
       <div className="loginContainer">
         <h1 className="profileTitle">Login</h1>
         <form onSubmit={onLogIn} className="loginForm">

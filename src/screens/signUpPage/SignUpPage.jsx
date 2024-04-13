@@ -1,11 +1,11 @@
 import { useState } from "react";
-// import { Link } from 'react-router-dom'; Use this to setup redirect link to Sign In Page
+import { Link } from 'react-router-dom'; 
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar.jsx";
 import { signUp } from "../../Services/users.js";
 import "./SignUpPage.css";
 
-function SignUpPage() {
+function SignUpPage({userProfile}) {
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
@@ -47,7 +47,7 @@ function SignUpPage() {
 
   return (
     <div className="signUpPage">
-      <Navbar show="noshow" />
+      <Navbar show="noshow" userProfile={userProfile}/>
       <div className="signUpContainer">
         <h1 className="profileTitle">Sign Up</h1>
         <form onSubmit={onSignUp} className="signUpForm">
@@ -100,6 +100,12 @@ function SignUpPage() {
             Join Us!
           </button>
         </form>
+        <p className="registerHere">
+          Are you our buddy already? {" "}
+          <Link to={"/login"}>
+            Login Here
+          </Link>
+        </p>
       </div>
     </div>
   );

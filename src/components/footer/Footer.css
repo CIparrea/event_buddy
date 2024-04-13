@@ -23,7 +23,6 @@
     background-color: pink;
 }
 
-
 #homeFooterBtn{
     background: url(../../../public/img/homeBtnWhite.png);
     background-repeat: no-repeat;
@@ -41,7 +40,6 @@
     background-size: contain;
     background-position: center;
     aspect-ratio: 1/1;
-    transform: scale(1.1);
     transition: transform 0.2s ease-in-out;
     height: 7vh;
     box-sizing: border-box;
@@ -66,7 +64,6 @@
     height: 7vh;
     box-sizing: border-box;
     aspect-ratio: 1/1;
-    transform: scale(1.1);
     transition: transform 0.2s ease-in-out;
 }
 
@@ -89,7 +86,6 @@
     height: 7vh;
     box-sizing: border-box;
     aspect-ratio: 1/1;
-    transform: scale(1.1);
     transition: transform 0.2s ease-in-out;
 }
 
@@ -109,13 +105,11 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    aspect-ratio: 1/1;
+    transition: transform 0.2s ease-in-out;
     height: 7vh;
     box-sizing: border-box;
-    aspect-ratio: 1/1;
-    transform: scale(1.1);
-    transition: transform 0.2s ease-in-out;
 }
-
 
 @media (min-width: 760px) {
     .footer {

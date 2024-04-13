@@ -6,8 +6,9 @@ function Event() {
     const navigate = useNavigate();
     
     function outerButtonClick() {
-        navigate("/profile");
         console.log("Outer button clicked");
+        //here needs to render the id of the event
+        navigate("/events/1");
     }
     
     function innerButtonClick(event) {
