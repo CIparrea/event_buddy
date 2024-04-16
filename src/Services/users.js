@@ -70,3 +70,12 @@ export const deleteUser = async (id) => {
     console.error("Error deleting user: ", error);
   }
 };
+
+export const signOut = async () => {
+  try {
+    localStorage.removeItem("token");
+    return true;
+  } catch (error) {
+    throw error;
+  }
+};

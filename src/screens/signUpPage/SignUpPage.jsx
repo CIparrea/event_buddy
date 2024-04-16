@@ -5,7 +5,7 @@ import Navbar from "../../components/navbar/Navbar.jsx";
 import { signUp } from "../../Services/users.js";
 import "./SignUpPage.css";
 
-function SignUpPage({userProfile}) {
+function SignUpPage({userProfile, setUserProfile}) {
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
@@ -27,10 +27,9 @@ function SignUpPage({userProfile}) {
   const onSignUp = async (event) => {
     event.preventDefault();
     try {
-      // const user = 
-      await signUp(form);
-      // setUser(user);
-      navigate("/profile");
+      const user = await signUp(form);
+      setUserProfile(user)
+      navigate("/");
     } catch (error) {
       console.error(error);
       setForm({
@@ -47,7 +46,7 @@ function SignUpPage({userProfile}) {
 
   return (
     <div className="signUpPage">
-      <Navbar show="noshow" userProfile={userProfile}/>
+      <Navbar show="noshow" userProfile={userProfile} setUserProfile={setUserProfile}/>
       <div className="signUpContainer">
         <h1 className="profileTitle">Sign Up</h1>
         <form onSubmit={onSignUp} className="signUpForm">

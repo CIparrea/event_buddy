@@ -44,9 +44,15 @@ function EditProfilePage({userProfile, setUserProfile}) {
 
 
 //___________________________________________________________________________
-  //this if the function that will be called when the form update password is submitted
+  //this is the function that will be called when the form update password is submitted
   const handleUpdatePasswordForm = async(event) =>{
     event.preventDefault();
+
+
+
+
+
+    
     console.log("edit password button clicked")
     navigate('/profile');
   }
@@ -57,7 +63,7 @@ function EditProfilePage({userProfile, setUserProfile}) {
 
   return (
     <div className='editProfilePage'>
-      <Navbar show="noshow" userProfile={userProfile}/>
+      <Navbar show="noshow" userProfile={userProfile} setUserProfile={setUserProfile}/>
       <div className='editProfileContainer'>
         <h1 className='editProfileTitle'>Edit Profile</h1>
         <form 

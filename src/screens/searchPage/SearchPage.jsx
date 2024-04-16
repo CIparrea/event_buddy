@@ -7,10 +7,10 @@ import MusicEvents from '../../components/musicEvents/MusicEvents.jsx'
 import SportsEvents from '../../components/sportsEvents/SportsEvents.jsx'
 import ShowsEvents from '../../components/showsEvents/ShowsEvents.jsx'
  
-function SearchPage({userProfile, events, sportsEvents, musicEvents, showsEvents}) {
+function SearchPage({userProfile, setUserProfile, events, sportsEvents, musicEvents, showsEvents}) {
   return (
     <div className='searchPage'>
-    <Navbar show="show" userProfile={userProfile}/>
+    <Navbar show="show" userProfile={userProfile} setUserProfile={setUserProfile}/>
       <Tabs className='searchScreen'>
             <TabList className='filterOptions'>
               <Tab>

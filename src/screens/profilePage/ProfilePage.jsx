@@ -4,12 +4,12 @@ import Navbar from "../../components/navbar/Navbar.jsx";
 import { verifyUser } from "../../Services/users.js";
 import "./ProfilePage.css";
 
-function ProfilePage({userProfile}) {
+function ProfilePage({userProfile, setUserProfile}) {
   const navigate = useNavigate();
 
   return (
     <div className="profilePage">
-      <Navbar show="noshow" userProfile={userProfile}/>
+      <Navbar show="noshow" userProfile={userProfile} setUserProfile={setUserProfile}/>
       <div className="userContainer">
         <div className="userPicture"></div>
         <div className="userInfo">

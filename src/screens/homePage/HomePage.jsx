@@ -6,16 +6,15 @@ import { useNavigate } from "react-router-dom";
 import Credits from '../../components/credits/Credits.jsx';
 
 
-function HomePage({ userProfile, events, sportsEvents, musicEvents, showsEvents }) {
+function HomePage({ userProfile, setUserProfile,  events, sportsEvents, musicEvents, showsEvents }) {
   const navigate = useNavigate();
-
 
   //Somewhere in here we need to fetch or get a random event for the spotlight section
 
   
   function outerButtonClick() {
       //here needs to render the id of the event
-      navigate("/events/1");
+      navigate(`/events/2`);
   }
   
   function innerButtonClick(event) {
@@ -24,7 +23,7 @@ function HomePage({ userProfile, events, sportsEvents, musicEvents, showsEvents 
   }
   return (
     <div className='homePage'>
-      <Navbar show="noshow" userProfile={userProfile}/>
+      <Navbar show="noshow" userProfile={userProfile} setUserProfile={setUserProfile}/>
       <button 
       onClick={() => {
         outerButtonClick()
@@ -44,16 +43,11 @@ function HomePage({ userProfile, events, sportsEvents, musicEvents, showsEvents 
             <h1 className='categoryTitle' > Music</h1>
           </div>
           <div className='homeCategory'>
-  {/* we will need to add the map on musicEvents 
-      {musicEvents.map((event)=>{
-        <Event event={event} key={event.id}/>
-      })}
-  */}
-            <Event />
-            <Event />
-            <Event />
-            <Event />
-            <Event />
+            {musicEvents.map((event)=>{
+              return(
+                  <Event event={event} key={event.id}/>
+              )
+            })}
             </div>  
         </div>
         <div className='homeComponent'>
@@ -62,16 +56,11 @@ function HomePage({ userProfile, events, sportsEvents, musicEvents, showsEvents 
             <h1 className='categoryTitle'> Sports</h1>
           </div>
           <div className='homeCategory'>
-  {/* we will need to add the map on sportsEvents 
-      {sportsEvents.map((event)=>{
-        <Event event={event} key={event.id}/>
-      })}
-  */}
-            <Event />
-            <Event />
-            <Event />
-            <Event />
-            <Event />
+            {sportsEvents.map((event)=>{
+              return(
+                <Event event={event} key={event.id}/>
+            )
+            })}
             </div>  
         </div>
 
@@ -81,16 +70,11 @@ function HomePage({ userProfile, events, sportsEvents, musicEvents, showsEvents 
             <h1 className='categoryTitle'> Shows</h1>
           </div>
           <div className='homeCategory'>   
-  {/* we will need to add the map on showsEvents 
-      {showsEvents.map((event)=>{
-        <Event event={event} key={event.id}/>
-      })}
-  */}         
-            <Event />
-            <Event />
-            <Event />
-            <Event />
-            <Event />            
+            {showsEvents.map((event)=>{
+              return(
+                <Event event={event} key={event.id}/>
+            )
+            })}           
             </div>  
         </div>
 

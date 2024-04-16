@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 
-function EventPage({userProfile}) {
+function EventPage({userProfile, setUserProfile}) {
   const navigate = useNavigate();
   const { id } = useParams()
 
@@ -13,7 +13,7 @@ function EventPage({userProfile}) {
 
   return (
     <div className='eventPage'>
-      <Navbar show="noshow" userProfile={userProfile}/>
+      <Navbar show="noshow" userProfile={userProfile} setUserProfile={setUserProfile}/>
       <div className='eventDetailPageContainer'>
         <div className='eventPagePicture'>
           <button 

@@ -35,7 +35,7 @@ function LoginPage({userProfile, setUserProfile}) {
 
   return (
     <div className="loginPage">
-      <Navbar show="noshow" userProfile={userProfile}/>
+      <Navbar show="noshow" userProfile={userProfile} setUserProfile={setUserProfile}/>
       <div className="loginContainer">
         <h1 className="profileTitle">Login</h1>
         <form onSubmit={onLogIn} className="loginForm">

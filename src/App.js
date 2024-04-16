@@ -14,10 +14,10 @@ import React, { useState, useEffect } from "react";
 
 function App() {
   const [userProfile, setUserProfile] = useState(null);
-  const [events, setEvents] = useState({})
-  const [sportsEvents, setSportsEvents] = useState({})
-  const [musicEvents, setMusicEvents] = useState({})
-  const [showsEvents, setShowsEvents] = useState({})
+  const [events, setEvents] = useState([])
+  const [sportsEvents, setSportsEvents] = useState(["a","b"])
+  const [musicEvents, setMusicEvents] = useState(["a",1,4,6,7])
+  const [showsEvents, setShowsEvents] = useState(["b"])
   
 
   useEffect(() => {
@@ -65,6 +65,7 @@ function App() {
         sportsEvents={sportsEvents} 
         musicEvents={musicEvents} 
         showsEvents={showsEvents} 
+        setUserProfile={setUserProfile}
         />}/>
         <Route path="/search" element={<SearchPage 
         userProfile={userProfile}
@@ -72,14 +73,15 @@ function App() {
         sportsEvents={sportsEvents} 
         musicEvents={musicEvents} 
         showsEvents={showsEvents} 
+        setUserProfile={setUserProfile}
         />}/>
-        <Route path="/favorites" element={<FavoritesPage userProfile={userProfile}/>}/> 
-        <Route path="/events/:id" element={<EventPage userProfile={userProfile}/>}/> 
+        <Route path="/favorites" element={<FavoritesPage userProfile={userProfile} setUserProfile={setUserProfile}/>}/> 
+        <Route path="/events/:id" element={<EventPage userProfile={userProfile} setUserProfile={setUserProfile}/>}/> 
         <Route path="/login" element={<LoginPage userProfile={userProfile} setUserProfile={setUserProfile}/>}/> 
-        <Route path="/profile" element={<ProfilePage userProfile={userProfile}/>}/> 
+        <Route path="/profile" element={<ProfilePage userProfile={userProfile} setUserProfile={setUserProfile}/>}/> 
         <Route path="/edit" element={<EditProfilePage userProfile={userProfile} setUserProfile={setUserProfile}/>}/>
-        <Route path="/signup" element={<SignUpPage userProfile={userProfile}/>}/>
-        <Route path="/help" element={<HelpPage userProfile={userProfile}/>}/>
+        <Route path="/signup" element={<SignUpPage userProfile={userProfile} setUserProfile={setUserProfile}/>}/>
+        <Route path="/help" element={<HelpPage userProfile={userProfile} setUserProfile={setUserProfile}/>}/>
       </Routes>
       <Footer />
     </div>

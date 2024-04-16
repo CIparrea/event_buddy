@@ -2,12 +2,16 @@ import React from 'react'
 import './Navbar.css'
 import SearchBar from '../serachBar/SearchBar'
 import { useNavigate } from "react-router-dom";
+import { signOut } from '../../Services/users.js';
 
-function Navbar({show, userProfile}) {
+
+function Navbar({show, userProfile, setUserProfile}) {
   const navigate = useNavigate();
 
-  const handleLogOut = () =>{
-    console.log("we're trying to logout")
+  const handleLogOut = async () =>{
+    await signOut()
+    setUserProfile(null)
+    navigate("/login");
   }
 
   const allEventsButton = () =>{
