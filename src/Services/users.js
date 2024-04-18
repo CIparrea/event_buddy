@@ -55,7 +55,7 @@ export const updateSavedEvents = async (eventId) => {
 
 export const updateUser = async (updatedUserData) => {
   try {
-    const resp = await api.get(`/users/update-user`, updatedUserData);
+    const resp = await api.put(`/users/update-user`, updatedUserData);
     return resp.data;
   } catch (error) {
     console.error("Error updating user: ", error);
