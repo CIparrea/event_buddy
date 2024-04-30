@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./HomePage.css";
 import Navbar from "../../components/navbar/Navbar.jsx";
 import Event from "../../components/event/Event.jsx";
 import { useNavigate } from "react-router-dom";
 import Credits from "../../components/credits/Credits.jsx";
+import { getSpotlight } from "../../Services/events.js";
 
 function HomePage({
   userProfile,
@@ -14,9 +15,19 @@ function HomePage({
   showsEvents,
 }) {
   const navigate = useNavigate();
+  const [spotlightEvents, setSpotlightEvents] = useState([]);
 
-  //Somewhere in here we need to fetch or get a random event for the spotlight section
+  useEffect(() => {
+    
+    const fetchSpotlightEvents = async () => {
+      //Fetches 5 spotlight attractions to rotate through
+      const spotlightEventsfetched = await getSpotlight();
+      setSpotlightEvents(spotlightEventsfetched);
+    };
 
+    fetchSpotlightEvents();
+  }, []);
+  
   function outerButtonClick() {
     //here needs to render the id of the event
     navigate(`/events/2`);

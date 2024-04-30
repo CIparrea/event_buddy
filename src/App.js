@@ -20,12 +20,11 @@ import {
 function App() {
   const [userProfile, setUserProfile] = useState(null);
   const [events, setEvents] = useState([]);
-  const [sportsEvents, setSportsEvents] = useState(["a", "b"]);
+  const [sportsEvents, setSportsEvents] = useState([]);
   const [musicEvents, setMusicEvents] = useState([]);
-  const [showsEvents, setShowsEvents] = useState(["b"]);
+  const [showsEvents, setShowsEvents] = useState([]);
 
   useEffect(() => {
-    console.log("we're useEffect from home page");
     const fetchEvents = async () => {
       console.log("we're fetching the events");
       //here we will need to call the function from the services to pull data from db
@@ -43,7 +42,6 @@ function App() {
       //here we will need to call the function from the services to pull data from db
       const musicEventsfetched = await getMusicEvents();
       setMusicEvents(musicEventsfetched);
-      console.log(musicEvents);
     };
 
     const fetchShowsEvents = async () => {
