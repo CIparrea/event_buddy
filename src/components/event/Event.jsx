@@ -12,9 +12,9 @@ function Event({ event }) {
 
   async function innerButtonClick(event) {
     console.log("Inner button clicked");
-    event.stopPropagation();
+    console.log(event.id)
+    // event.stopPropagation();
     try {
-        console.log(event.id)
       await updateSavedEvents(event.id);
     } catch (error) {
       console.error("Error updating saved events:", error);
@@ -39,7 +39,7 @@ function Event({ event }) {
         <div className="eventFooter">
           <h5 className="eventPrice">PRICE STARTS $</h5>
           <button
-            onClick={(event) => {
+            onClick={() => {
               innerButtonClick(event);
             }}
             className="heart"
