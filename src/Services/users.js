@@ -45,8 +45,7 @@ export const getSavedEvents = async () => {
 export const updateSavedEvents = async (eventId) => {
   try {
     const resp = await api.put(`users/saved-event/${eventId}`);
-    localStorage.getItem("token", resp.data.token);
-    const user = jwtDecode(resp.data.token);
+    const user = (localStorage.getItem("token", resp.data.token));
     return user;
   } catch (error) {
     console.error("Error updating saved events: ", error);
