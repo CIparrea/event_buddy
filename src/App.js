@@ -26,42 +26,40 @@ function App() {
 
   useEffect(() => {
     const fetchEvents = async () => {
-      console.log("we're fetching the events");
-      //here we will need to call the function from the services to pull data from db
-      // const eventsfetched = await getEvents()
-      // setEvents( eventsfetched )
-      
+      const allEvents = sportsEvents.concat(musicEvents, showsEvents);
+      console.log(allEvents);
+      setEvents(allEvents);
     };
 
     const fetchSportsEvents = async () => {
       //here we will need to call the function from the services to pull data from db
-      console.log("sports")
+      console.log("sports");
       const sportsEventsfetched = await getSportsEvents();
       setSportsEvents(sportsEventsfetched);
-      console.log(sportsEventsfetched)
+      console.log(sportsEventsfetched);
     };
 
     const fetchMusicEvents = async () => {
       //here we will need to call the function from the services to pull data from db
-      
-      console.log("music")
+
+      console.log("music");
       const musicEventsfetched = await getMusicEvents();
       setMusicEvents(musicEventsfetched);
-      console.log(musicEventsfetched)
+      console.log(musicEventsfetched);
     };
 
     const fetchShowsEvents = async () => {
       //here we will need to call the function from the services to pull data from db
-      console.log("shows")
+      console.log("shows");
       const showsEventsfetched = await getShowsEvents();
       setShowsEvents(showsEventsfetched);
-      console.log(showsEventsfetched)
+      console.log(showsEventsfetched);
     };
 
-    fetchEvents();
     fetchSportsEvents();
     fetchMusicEvents();
     fetchShowsEvents();
+    fetchEvents();
   }, []);
 
   return (
@@ -157,7 +155,7 @@ function App() {
           }
         />
       </Routes>
-      <Footer userProfile={userProfile}/>
+      <Footer userProfile={userProfile} />
     </div>
   );
 }
