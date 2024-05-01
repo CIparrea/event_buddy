@@ -30,24 +30,32 @@ function App() {
       //here we will need to call the function from the services to pull data from db
       // const eventsfetched = await getEvents()
       // setEvents( eventsfetched )
+      
     };
 
     const fetchSportsEvents = async () => {
       //here we will need to call the function from the services to pull data from db
+      console.log("sports")
       const sportsEventsfetched = await getSportsEvents();
       setSportsEvents(sportsEventsfetched);
+      console.log(sportsEventsfetched)
     };
 
     const fetchMusicEvents = async () => {
       //here we will need to call the function from the services to pull data from db
+      
+      console.log("music")
       const musicEventsfetched = await getMusicEvents();
       setMusicEvents(musicEventsfetched);
+      console.log(musicEventsfetched)
     };
 
     const fetchShowsEvents = async () => {
       //here we will need to call the function from the services to pull data from db
+      console.log("shows")
       const showsEventsfetched = await getShowsEvents();
       setShowsEvents(showsEventsfetched);
+      console.log(showsEventsfetched)
     };
 
     fetchEvents();
@@ -149,7 +157,7 @@ function App() {
           }
         />
       </Routes>
-      <Footer />
+      <Footer userProfile={userProfile}/>
     </div>
   );
 }

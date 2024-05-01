@@ -1,8 +1,8 @@
 import React from 'react'
 import './Footer.css'
 import { useNavigate } from "react-router-dom";
-
-function Footer() {
+ 
+function Footer({userProfile}) {
   const navigate = useNavigate();
   return (
     <div className='footer'>
@@ -22,14 +22,24 @@ function Footer() {
       ></button>
       <button 
       onClick={() => {
-        navigate("/favorites");
+        if(userProfile){
+          navigate("/favorites");
+        }
+        else{
+          navigate("/login");
+        }
       }}
       className='footerBtn' 
       id='favoritesFooterBtn'
       ></button>
       <button 
       onClick={() => {
-        navigate("/profile");
+        if(userProfile){
+          navigate("/profile");
+        }
+        else{
+          navigate("/login");
+        }
       }}
       className='footerBtn' 
       id='profileFooterBtn'

@@ -23,7 +23,7 @@ function LoginPage({userProfile, setUserProfile}) {
   const onLogIn = async (event) => {
     event.preventDefault();
     await signIn(form);
-    navigate("/");
+    
 
     const fetchUserProfile = async () => {
       const user = await verifyUser();
@@ -31,6 +31,7 @@ function LoginPage({userProfile, setUserProfile}) {
     };
 
     fetchUserProfile();
+    navigate("/");
   };
 
   return (

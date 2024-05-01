@@ -3,9 +3,16 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar.jsx";
 import { verifyUser } from "../../Services/users.js";
 import "./ProfilePage.css";
+import { signOut } from '../../Services/users.js';
 
 function ProfilePage({userProfile, setUserProfile}) {
   const navigate = useNavigate();
+
+  const handleLogOut = async () =>{
+    await signOut()
+    setUserProfile(null)
+    navigate("/login");
+  }
 
   return (
     <div className="profilePage">
@@ -33,6 +40,17 @@ function ProfilePage({userProfile, setUserProfile}) {
           >
             Delete
           </button>
+
+          <button
+            onClick={() => {
+              handleLogOut()
+            }}
+            className="profileBtn"
+            id="logoutProfileBtn"
+          >
+            Log out
+          </button>
+
         </div>
       </div>
     </div>
