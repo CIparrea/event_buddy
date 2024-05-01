@@ -1,10 +1,10 @@
 import React from 'react'
 import './AllEvents.css'
-import Event from '../event/Event'
+import Event from '../event/Event.jsx'
 
 function AllEvents({events}) {
   return (
-    <div className='allEeventsDisplayPage'>
+    <div className='allEventsDisplayPage'>
       {events.map((event)=>{
         return(
           <Event event={event} key={event.id}/>
@@ -14,4 +14,4 @@ function AllEvents({events}) {
   )
 }
 
-export default AllEvents
+export default AllEvents;

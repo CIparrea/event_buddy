@@ -1,6 +1,6 @@
 import React from 'react'
 import './MusicEvents.css'
-import Event from '../event/Event'
+import Event from '../event/Event.jsx'
 
 function MusicEvents({musicEvents}) {
   return (

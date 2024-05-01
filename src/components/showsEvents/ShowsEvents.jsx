@@ -1,6 +1,6 @@
 import React from 'react'
 import './ShowsEvents.css'
-import Event from '../event/Event'
+import Event from '../event/Event.jsx'
 
 function ShowsEvents({showsEvents}) {
   return (

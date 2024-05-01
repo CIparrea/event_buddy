@@ -1,4 +1,4 @@
-.allEeventsDisplayPage{
+.allEventsDisplayPage{
     margin: 0;
     padding: 1.2vh 0 0 0;
     box-sizing: border-box;
@@ -10,7 +10,7 @@
 }
 
 @media (max-width: 760px) {
-    .allEeventsDisplayPage {
+    .allEventsDisplayPage {
         display: flex;
         justify-content: center;
         align-items: top;
