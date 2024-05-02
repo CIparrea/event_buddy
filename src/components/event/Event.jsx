@@ -9,7 +9,7 @@ function Event({ event }) {
   const navigate = useNavigate();
 
   function outerButtonClick() {
-    navigate(`/events/${event.id}`);
+    navigate(`/events/${event.id}`, {state: event});
   }
 
   async function innerButtonClick(event) {

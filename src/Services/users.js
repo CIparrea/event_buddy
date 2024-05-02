@@ -36,7 +36,7 @@ export const verifyUser = async () => {
 export const getSavedEvents = async () => {
   try {
     const resp = await api.get("/users/saved-events");
-    return resp.data;
+    return resp.data.savedEvents;
   } catch (error) {
     console.error("Error getting saved events: ", error);
   }
