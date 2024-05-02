@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { updateSavedEvents } from "../../Services/users.js";
 
 function Event({ event }) {
+  // const test = document.querySelector("img");
+  // console.log(test)
   const navigate = useNavigate();
 
   function outerButtonClick() {
@@ -29,15 +31,15 @@ function Event({ event }) {
       }}
       className="eventDetailContainer"
     >
-      <div className="eventPicture"></div>
+      <img className="eventPicture" src={event.images[0].url}></img>
       <div className="eventInformation">
         <div className="eventDescription">
-          <h2 className="eventTitle"> EVENT TITLE</h2>
-          <h3 className="eventDate">DATE AND TIME</h3>
-          <h5 className="eventLocation">LOCATION</h5>
+          <h2 className="eventTitle">{event.name}</h2>
+          <h3 className="eventDate">{event.dates.start.localDate}</h3>
+          <h5 className="eventLocation">At {event._embedded.venues[0].name}, {event._embedded.venues[0].state.name}</h5>
         </div>
         <div className="eventFooter">
-          <h5 className="eventPrice">PRICE STARTS $</h5>
+          <h5 className="eventPrice">PRICE STARTS $ </h5>
           <button
             onClick={() => {
               innerButtonClick(event);

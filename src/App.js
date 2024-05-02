@@ -26,40 +26,35 @@ function App() {
 
   useEffect(() => {
     const fetchEvents = async () => {
-      const allEvents = sportsEvents.concat(musicEvents, showsEvents);
-      console.log(allEvents);
-      setEvents(allEvents);
-    };
-
+      const allEvents = [sportsEvents, musicEvents, showsEvents];
+      setEvents(allEvents.flat(Infinity))
+      console.log("all",allEvents.flat(Infinity))
+    }; 
+    fetchEvents();
+  }, [sportsEvents, musicEvents, showsEvents]); 
+  
+  useEffect(() => {
     const fetchSportsEvents = async () => {
-      //here we will need to call the function from the services to pull data from db
-      console.log("sports");
       const sportsEventsfetched = await getSportsEvents();
-      setSportsEvents(sportsEventsfetched);
-      console.log(sportsEventsfetched);
+      console.log("sportsevents",sportsEventsfetched);
+      return setSportsEvents(sportsEventsfetched);
     };
-
+    
     const fetchMusicEvents = async () => {
-      //here we will need to call the function from the services to pull data from db
-
-      console.log("music");
       const musicEventsfetched = await getMusicEvents();
-      setMusicEvents(musicEventsfetched);
-      console.log(musicEventsfetched);
+      console.log("musicevents",musicEventsfetched);
+     return setMusicEvents(musicEventsfetched);
     };
-
+    
     const fetchShowsEvents = async () => {
-      //here we will need to call the function from the services to pull data from db
-      console.log("shows");
       const showsEventsfetched = await getShowsEvents();
-      setShowsEvents(showsEventsfetched);
-      console.log(showsEventsfetched);
+      console.log("showsevents",showsEventsfetched);
+      return setShowsEvents(showsEventsfetched);
     };
-
+    
     fetchSportsEvents();
     fetchMusicEvents();
-    fetchShowsEvents();
-    fetchEvents();
+    fetchShowsEvents(); 
   }, []);
 
   return (
@@ -71,6 +66,7 @@ function App() {
             <HomePage
               userProfile={userProfile}
               events={events}
+              setEvents={setEvents}
               sportsEvents={sportsEvents}
               musicEvents={musicEvents}
               showsEvents={showsEvents}

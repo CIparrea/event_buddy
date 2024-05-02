@@ -10,6 +10,7 @@ function HomePage({
   userProfile,
   setUserProfile,
   events,
+  setEvents,
   sportsEvents,
   musicEvents,
   showsEvents,
@@ -20,9 +21,9 @@ function HomePage({
   useEffect(() => {
     
     const fetchSpotlightEvents = async () => {
-      //Fetches 5 spotlight attractions to rotate through
       const spotlightEventsfetched = await getSpotlight();
       setSpotlightEvents(spotlightEventsfetched);
+      console.log("spotlight",spotlightEvents)
     };
 
     fetchSpotlightEvents();
