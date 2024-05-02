@@ -36,12 +36,24 @@ export const getMusicEvents = async () => {
 };
 
 export const getShowsEvents = async () => {
-    try {
-      const resp = await axios.get(
-        `https://app.ticketmaster.com/discovery/v2/events?apikey=${apiKey}&locale=en-us&size=30&page=1&segmentId=KZFzniwnSyZfZ7v7na`
-      );
-      return resp.data._embedded.events;
-    } catch (error) {
-      console.error("Error verifying user: ", error);
-    }
-  };
+  try {
+    const resp = await axios.get(
+      `https://app.ticketmaster.com/discovery/v2/events?apikey=${apiKey}&locale=en-us&size=30&page=1&segmentId=KZFzniwnSyZfZ7v7na`
+    );
+    return resp.data._embedded.events;
+  } catch (error) {
+    console.error("Error verifying user: ", error);
+  }
+};
+
+export const getSavedEvent = async (eventId) => {
+  try {
+    const resp = await axios.get(
+      `https://app.ticketmaster.com/discovery/v2/events/${eventId}?apikey=${apiKey}&locale=*`
+    );
+    console.log("This is a Saved Event:", resp.data._embedded.events);
+    return resp.data._embedded.events;
+  } catch (error) {
+    console.error("Error verifying user: ", error);
+  }
+};
