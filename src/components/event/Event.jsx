@@ -4,10 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { updateSavedEvents } from "../../Services/users.js";
 
 function Event({ event }) {
-  // const test = document.querySelector("img");
-  // console.log(test)
   const navigate = useNavigate();
-  
+
   function outerButtonClick() {
     navigate(`/events/${event.id}`, {state: event});
   }
@@ -24,6 +22,13 @@ function Event({ event }) {
     navigate("/favorites");
   }
 
+  function image() {
+    const images = event.images;
+    const bestQualityImage = images?.find(obj=>obj.width > "1800");
+    const eventImage = bestQualityImage.url
+    return eventImage
+  }
+
   return (
     <button
       onClick={() => {
@@ -31,7 +36,7 @@ function Event({ event }) {
       }}
       className="eventDetailContainer"
     >
-      <img className="eventPicture" src={event.images[0].url}></img>
+      <img className="eventPicture" src={image()}></img>
       <div className="eventInformation">
         <div className="eventDescription">
           <h2 className="eventTitle">{event.name}</h2>
@@ -39,7 +44,7 @@ function Event({ event }) {
           <h5 className="eventLocation">At {event._embedded.venues[0].name}, {event._embedded.venues[0].state.name}</h5>
         </div>
         <div className="eventFooter">
-          <h5 className="eventPrice">PRICE STARTS $ </h5>
+          <h5 className="eventPrice">PRICE STARTS ${event.priceRanges? Math.ceil(event.priceRanges[0].min):0} </h5>
           <button
             onClick={() => {
               innerButtonClick(event);

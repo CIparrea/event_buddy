@@ -23,15 +23,31 @@ function App() {
   const [sportsEvents, setSportsEvents] = useState([]);
   const [musicEvents, setMusicEvents] = useState([]);
   const [showsEvents, setShowsEvents] = useState([]);
+  const [spotlightEvents, setSpotlightEvents] = useState([]);
 
   useEffect(() => {
     const fetchEvents = async () => {
-      const allEvents = [sportsEvents, musicEvents, showsEvents];
-      setEvents(allEvents.flat(Infinity))
-      console.log("all",allEvents.flat(Infinity))
+      const allEvents = [sportsEvents, musicEvents, showsEvents].flat(Infinity);
+      let currentIndex = allEvents.length;
+
+      while (currentIndex != 0) {
+        let randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+    
+        [allEvents[currentIndex], allEvents[randomIndex]] = [
+          allEvents[randomIndex], allEvents[currentIndex]];
+      }
+      
+      setEvents(allEvents) 
+      setSpotlightEvents(allEvents[10])
     }; 
+
     fetchEvents();
   }, [sportsEvents, musicEvents, showsEvents]); 
+
+  // useEffect(()=>{
+  //   setSpotlightEvents(events[10])
+  // },[events]);
   
   useEffect(() => {
     const fetchSportsEvents = async () => {
@@ -71,6 +87,7 @@ function App() {
               musicEvents={musicEvents}
               showsEvents={showsEvents}
               setUserProfile={setUserProfile}
+              spotlightEvents={spotlightEvents}
             />
           }
         />

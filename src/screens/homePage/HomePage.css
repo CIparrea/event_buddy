@@ -9,8 +9,7 @@
 
 .spotlight{
     width: 100vw;
-    height: 60vh;
-    background-color: #FFD60A;
+    height: 70vh;
     display: flex;
     justify-content: end;
     align-items: end;
@@ -19,12 +18,18 @@
     padding: 0 3vh;
     border-width: 0;
     box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.18);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 100;
 }
 
 .spotlightTitle{
     width: 100%;
     color: white;
     text-shadow: 1px 1px 2px black;
+    text-align: center;
+    font-size: 3rem;
 }
 
 .homeContent{

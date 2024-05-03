@@ -22,7 +22,13 @@ function EventPage({ userProfile, setUserProfile }) {
     navigate("/favorites");
   }
 
-  //here we will need a useEffect so we can fetch the event that was clicked on
+
+  function image() {
+    const images = event.images;
+    const bestQualityImage = images?.find(obj=>obj.width > "1800");
+    const eventImage = bestQualityImage.url
+    return eventImage
+  }
 
   return (
     <div className="eventPage">
@@ -32,7 +38,7 @@ function EventPage({ userProfile, setUserProfile }) {
         setUserProfile={setUserProfile}
       />
       <div className="eventDetailPageContainer">
-        <div className="eventPagePicture" style={{backgroundImage: `url('${event.images[0].url}')`}}>
+        <div className="eventPagePicture" style={{backgroundImage: `url('${image()}')`}}>
         <button
               onClick={() => {
                 innerButtonClick(event);
@@ -50,7 +56,7 @@ function EventPage({ userProfile, setUserProfile }) {
               At {event._embedded.venues[0].name},{" "}
               {event._embedded.venues[0].state.name}
             </h3>
-            <h3 className="eventPagePrice">Tickets start at ${event.priceRanges[0].min}</h3>
+            <h3 className="eventPagePrice">Tickets start at ${event.priceRanges? Math.ceil(event.priceRanges[0].min):0}</h3>
           </div>
           <div className="eventPageFooter">
             <a href={event.url} target="_blank">
