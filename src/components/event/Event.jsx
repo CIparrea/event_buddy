@@ -7,7 +7,7 @@ function Event({ event }) {
   // const test = document.querySelector("img");
   // console.log(test)
   const navigate = useNavigate();
-
+  
   function outerButtonClick() {
     navigate(`/events/${event.id}`, {state: event});
   }

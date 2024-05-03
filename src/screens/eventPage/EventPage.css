@@ -16,6 +16,7 @@
     display: flex;
     flex-direction: column;
     text-align: left;
+
 }
 
 .eventPagePicture{
@@ -24,11 +25,14 @@
     align-items: end;
     box-sizing: border-box;
     padding: 5vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .eventPagePicture{
     width: 100%;
-    height: 60%;
+    height: 70%;
     background-color: yellowgreen;
     box-shadow: 5px 5px 5px rgba(128, 128, 128, 0.18);
 }

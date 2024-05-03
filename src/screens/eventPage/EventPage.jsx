@@ -7,7 +7,6 @@ import { updateSavedEvents } from "../../Services/users.js";
 function EventPage({ userProfile, setUserProfile }) {
   const navigate = useNavigate();
   const { id } = useParams();
-
   const location = useLocation();
   const event = location.state;
 
@@ -33,15 +32,17 @@ function EventPage({ userProfile, setUserProfile }) {
         setUserProfile={setUserProfile}
       />
       <div className="eventDetailPageContainer">
-        <div className="eventPagePicture">
-          <button
-            onClick={() => {
-              innerButtonClick(event);
-            }}
-            className="eventPageHeart"
-          ></button>
+        <div className="eventPagePicture" style={{backgroundImage: `url('${event.images[0].url}')`}}>
+        <button
+              onClick={() => {
+                innerButtonClick(event);
+              }}
+              className="eventPageHeart"
+            ></button>
+
         </div>
         <div className="eventPageInformation">
+        
           <div className="eventPageDescription">
             <h1 className="eventPageTitle">{event.name}</h1>
             <h2 className="eventPageDate">{event.dates.start.localDate}</h2>
@@ -52,14 +53,13 @@ function EventPage({ userProfile, setUserProfile }) {
             <h3 className="eventPagePrice">Tickets start at ${event.priceRanges[0].min}</h3>
           </div>
           <div className="eventPageFooter">
+            <a href={event.url} target="_blank">
             <button
-              onClick={(event) => {
-                navigate(`${event.url}`);
-              }}
               className="ticketsBtn"
             >
               BUY TICKETS
             </button>
+            </a>
           </div>
         </div>
       </div>
