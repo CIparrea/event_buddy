@@ -58,7 +58,7 @@ function App() {
       console.log("showsevents",showsEventsfetched);
 
       setSportsEvents(sportsEventsfetched)
-      setMusicEvents(sportsMusicfetched)
+      setMusicEvents(musicEventsfetched)
       setShowsEvents(showsEventsfetched)
     };
     
