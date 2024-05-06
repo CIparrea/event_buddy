@@ -10,16 +10,24 @@ function Event({ event }) {
     navigate(`/events/${event.id}`, {state: event});
   }
 
-  async function innerButtonClick(event) {
-    console.log("Inner button clicked");
-    console.log(event.id)
-    // event.stopPropagation();
-    try {
-      await updateSavedEvents(event.id);
-    } catch (error) {
-      console.error("Error updating saved events:", error);
-    }
-    navigate("/favorites");
+  function addFavorite(event) {
+    event.stopPropagation();
+    console.log("add favorite")
+    // console.log("Inner button clicked");
+    // console.log(event.id)
+    // // event.stopPropagation();
+    // try {
+    //   await updateSavedEvents(event.id);
+    // } catch (error) {
+    //   console.error("Error updating saved events:", error);
+    // }
+    // navigate("/favorites");
+  }
+
+  function removeFavorite(event) {
+    event.stopPropagation();
+    console.log("remove favorite")
+  
   }
 
   function image() {
@@ -27,6 +35,25 @@ function Event({ event }) {
     const bestQualityImage = images?.find(obj=>obj.width > "1800");
     const eventImage = bestQualityImage.url
     return eventImage
+  }
+
+  function isFavorite(){
+    return(
+      <>
+      <button
+        onClick={(event) => {
+          addFavorite(event);
+        }}
+        className="heart"
+      ></button>
+      <button
+        onClick={(event) => {
+          removeFavorite(event);
+        }}
+        className="favoriteEventBtn"
+      ></button>
+      </>
+    )
   }
 
   return (
@@ -45,18 +72,7 @@ function Event({ event }) {
         </div>
         <div className="eventFooter">
           <h5 className="eventPrice">PRICE STARTS ${event.priceRanges? Math.ceil(event.priceRanges[0].min):0} </h5>
-          <button
-            onClick={() => {
-              innerButtonClick(event);
-            }}
-            className="heart"
-          ></button>
-          <button
-            onClick={() => {
-              innerButtonClick(event);
-            }}
-            className="favoriteEventBtn"
-          ></button>
+          {isFavorite()}
         </div>
       </div>
     </div>

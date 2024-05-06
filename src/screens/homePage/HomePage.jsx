@@ -23,9 +23,14 @@ function HomePage({
     navigate(`/events/${spotlightEvents.id}`, {state: spotlightEvents});
   }
 
-  function innerButtonClick(event) {
+  function addFavorite(event) {
     event.stopPropagation();
-    navigate("/favorites");
+    console.log("add favorite")
+  }
+
+  function removeFavorite(event) {
+    event.stopPropagation();
+    console.log("remove favorite")
   }
 
   function spotlightImage() {
@@ -34,7 +39,26 @@ function HomePage({
     const eventImage = bestQualityImage.url
     return eventImage
   }
-  spotlightImage()
+  
+  function isFavorite(){
+    return(
+      <>
+      <button
+            onClick={(event) => {
+              addFavorite(event);
+            }}
+            className="eventPageHeart"
+          ></button>
+          <button
+            onClick={(event) => {
+              removeFavorite(event);
+            }}
+            className="favoriteEventPageHeartBtn"
+          ></button>
+      </>
+    )
+  }
+  
 
   return (
     <div className="homePage">
@@ -51,18 +75,7 @@ function HomePage({
           }}
         >
           <h1 className="spotlightTitle">{spotlightEvents.name}</h1>
-          <button
-            onClick={(event) => {
-              innerButtonClick(event);
-            }}
-            className="eventPageHeart"
-          ></button>
-          <button
-            onClick={(event) => {
-              innerButtonClick(event);
-            }}
-            className="favoriteEventPageHeartBtn"
-          ></button>
+          {isFavorite()}
         </div>
       </a>
 

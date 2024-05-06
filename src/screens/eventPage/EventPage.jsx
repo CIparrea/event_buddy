@@ -10,16 +10,22 @@ function EventPage({ userProfile, setUserProfile }) {
   const location = useLocation();
   const event = location.state;
 
-  async function innerButtonClick(event) {
-    console.log("Inner button clicked");
-    console.log(event.id);
-    // event.stopPropagation();
-    try {
-      await updateSavedEvents(event.id);
-    } catch (error) {
-      console.error("Error updating saved events:", error);
-    }
-    navigate("/favorites");
+  function addFavorite(event) {
+    console.log("add favorite")
+
+    // console.log("Inner button clicked");
+    // console.log(event.id);
+    // // event.stopPropagation();
+    // try {
+    //   await updateSavedEvents(event.id);
+    // } catch (error) {
+    //   console.error("Error updating saved events:", error);
+    // }
+    // navigate("/favorites");
+  }
+
+  function removeFavorite(event){
+    console.log("remove favorite")
   }
 
 
@@ -28,6 +34,25 @@ function EventPage({ userProfile, setUserProfile }) {
     const bestQualityImage = images?.find(obj=>obj.width > "1800");
     const eventImage = bestQualityImage.url
     return eventImage
+  }
+
+  function isFavorite(){
+    return(
+      <>
+      <button
+          onClick={() => {
+            addFavorite(event);
+          }}
+          className="eventPageHeart"
+        ></button>
+        <button
+          onClick={() => {
+            removeFavorite(event);
+          }}
+          className="favoriteEventPageHeartBtn"
+        ></button>
+      </>
+    )
   }
 
   return (
@@ -39,19 +64,7 @@ function EventPage({ userProfile, setUserProfile }) {
       />
       <div className="eventDetailPageContainer">
         <div className="eventPagePicture" style={{backgroundImage: `url('${image()}')`}}>
-        <button
-          onClick={() => {
-            innerButtonClick(event);
-          }}
-          className="eventPageHeart"
-        ></button>
-        <button
-          onClick={() => {
-            innerButtonClick(event);
-          }}
-          className="favoriteEventPageHeartBtn"
-        ></button>
-
+        {isFavorite()}
         </div>
         <div className="eventPageInformation">
         
