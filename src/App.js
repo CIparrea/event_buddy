@@ -24,6 +24,8 @@ function App() {
   const [musicEvents, setMusicEvents] = useState([]);
   const [showsEvents, setShowsEvents] = useState([]);
   const [spotlightEvents, setSpotlightEvents] = useState([]);
+  const [favoriteEvents, setFavoriteEvents] = useState([]);
+
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -44,10 +46,6 @@ function App() {
 
     fetchEvents();
   }, [sportsEvents, musicEvents, showsEvents]); 
-
-  // useEffect(()=>{
-  //   setSpotlightEvents(events[10])
-  // },[events]);
   
   useEffect(() => {
     const fetchSportsEvents = async () => {
