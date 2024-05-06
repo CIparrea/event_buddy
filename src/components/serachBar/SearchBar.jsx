@@ -11,22 +11,36 @@ function SearchBar({ show }) {
     setForm(event.target.value);
   };
 
-  console.log(form)
-
-  const handleSearchSubmit = async (event) => {
+  const handleSearchSubmit = (event) => {
     event.preventDefault();
-    const searchedEventsFetched = await getSearchedEvents(form);
-    console.log(searchedEventsFetched);
-    return setSearchedEvents(searchedEventsFetched);
+    console.log(event);
+    console.log(form);
+    handleSearch(form);
   };
 
-  // useEffect(() => {
-  //   const fetchSearchedEvents = async () => {
-  //     const searchedEventsFetched = await getSearchedEvents(form);
-  //     console.log(searchedEventsFetched);
-  //     return setSearchedEvents(searchedEventsFetched);
-  //   }
-  // })
+  useEffect(() => {
+    const handleSearch = async (form) => {
+      try {
+        const fetchSearchedEvents = await getSearchedEvents(form);
+        setSearchedEvents(fetchSearchedEvents);
+        console.log(searchedEvents);
+      } catch (error) {
+        console.error("Error searching for events: ", error);
+      }
+    };
+
+    handleSearch(form);
+  }, []);
+
+  const handleSearch = async (form) => {
+    try {
+      const fetchSearchedEvents = await getSearchedEvents(form);
+      setSearchedEvents(fetchSearchedEvents);
+      console.log(searchedEvents);
+    } catch (error) {
+      console.error("Error searching for events: ", error);
+    }
+  };
 
   return (
     <div className="searchBar" id={show}>
@@ -38,7 +52,7 @@ function SearchBar({ show }) {
           onChange={handleChange}
           className="searchBarInput"
         ></input>
-        <div className="searchBarIcon"></div>
+        <button type="submit" className="searchBarIcon"></button>
       </form>
     </div>
   );
