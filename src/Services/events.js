@@ -57,3 +57,14 @@ export const getSavedEvent = async (eventId) => {
     console.error("Error verifying user: ", error);
   }
 };
+
+export const getSearchedEvents = async (form) => {
+  try {
+    const resp = await axios.get (
+      `https://app.ticketmaster.com/discovery/v2/events?apikey=${apiKey}&keyword=${form}&locale=*`
+    );
+    return resp.data._embedded.events;
+  } catch (error) {
+    console.error ("Error searching for events: ", error);
+  }
+};
