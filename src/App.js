@@ -48,27 +48,21 @@ function App() {
   }, [sportsEvents, musicEvents, showsEvents]); 
   
   useEffect(() => {
-    const fetchSportsEvents = async () => {
+    const fetchData = async () => {
       const sportsEventsfetched = await getSportsEvents();
-      console.log("sportsevents",sportsEventsfetched);
-      return setSportsEvents(sportsEventsfetched);
-    };
-    
-    const fetchMusicEvents = async () => {
       const musicEventsfetched = await getMusicEvents();
-      console.log("musicevents",musicEventsfetched);
-     return setMusicEvents(musicEventsfetched);
-    };
-    
-    const fetchShowsEvents = async () => {
       const showsEventsfetched = await getShowsEvents();
+
+      console.log("sportsevents",sportsEventsfetched);
+      console.log("musicevents",musicEventsfetched);
       console.log("showsevents",showsEventsfetched);
-      return setShowsEvents(showsEventsfetched);
+
+      setSportsEvents(sportsEventsfetched)
+      setMusicEvents(sportsMusicfetched)
+      setShowsEvents(showsEventsfetched)
     };
     
-    fetchSportsEvents();
-    fetchMusicEvents();
-    fetchShowsEvents(); 
+    fetchData();
   }, []);
 
   return (
