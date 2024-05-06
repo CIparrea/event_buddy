@@ -40,11 +40,17 @@ function EventPage({ userProfile, setUserProfile }) {
       <div className="eventDetailPageContainer">
         <div className="eventPagePicture" style={{backgroundImage: `url('${image()}')`}}>
         <button
-              onClick={() => {
-                innerButtonClick(event);
-              }}
-              className="eventPageHeart"
-            ></button>
+          onClick={() => {
+            innerButtonClick(event);
+          }}
+          className="eventPageHeart"
+        ></button>
+        <button
+          onClick={() => {
+            innerButtonClick(event);
+          }}
+          className="favoriteEventPageHeartBtn"
+        ></button>
 
         </div>
         <div className="eventPageInformation">

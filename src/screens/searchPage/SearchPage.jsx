@@ -1,4 +1,4 @@
-import React from 'react'
+import {React, useState} from 'react'
 import './SearchPage.css'
 import Navbar from '../../components/navbar/Navbar.jsx'
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
@@ -8,31 +8,74 @@ import SportsEvents from '../../components/sportsEvents/SportsEvents.jsx'
 import ShowsEvents from '../../components/showsEvents/ShowsEvents.jsx'
  
 function SearchPage({userProfile, setUserProfile, events, sportsEvents, musicEvents, showsEvents}) {
+  
+  const [greenAllEvents, setGreenAllEvents] = useState(true);
+  const [greenMusic, setGreenMusic] = useState(false);
+  const [greenSports, setGreenSports] = useState(false)
+  const [greenShows, setGreenShows] = useState(false)
+  const allEventsStyle = greenAllEvents
+    ? "filtersBtnActive"
+    : "filtersBtn"; 
+    const musicStyle = greenMusic
+    ? "filtersBtnActive"
+    : "filtersBtn";
+    const sportsStyle = greenSports
+    ? "filtersBtnActive"
+    : "filtersBtn";
+    const showsStyle = greenShows
+    ? "filtersBtnActive"
+    : "filtersBtn";
+  
   return (
     <div className='searchPage'>
     <Navbar show="show" userProfile={userProfile} setUserProfile={setUserProfile}/>
       <Tabs className='searchScreen'>
             <TabList className='filterOptions'>
               <Tab>
-                <div className='filtersBtn'>
+                <div 
+                onClick={() => {
+                  setGreenAllEvents(true);
+                  setGreenMusic(false);
+                  setGreenSports(false);
+                  setGreenShows(false);
+                }}
+                className={allEventsStyle}>
                   <div className='filterIcon' id='allEventsIconSearch'></div>
                   <p className='filtersTitle'>All events</p>
                 </div>
               </Tab>
               <Tab>
-                <div className='filtersBtn' >
+                <div onClick={() => {
+                  setGreenAllEvents(false);
+                  setGreenMusic(true);
+                  setGreenSports(false);
+                  setGreenShows(false);
+                }}
+                className={musicStyle}>
                   <div className='filterIcon' id='musicIconSearch'></div>
                   <p className='filtersTitle'>Music</p>
                 </div>
               </Tab>
               <Tab>
-                <div className='filtersBtn'>
+                <div onClick={() => {
+                  setGreenAllEvents(false);
+                  setGreenMusic(false);
+                  setGreenSports(true);
+                  setGreenShows(false);
+                }}
+                className={sportsStyle}>
                   <div className='filterIcon' id='sportsIconSearch'></div>
                   <p className='filtersTitle'>Sports</p>
                 </div>
               </Tab>
               <Tab>
-                <div className='filtersBtn'>
+                <div onClick={() => {
+                  setGreenAllEvents(false);
+                  setGreenMusic(false);
+                  setGreenSports(false);
+                  setGreenShows(true);
+                }}
+                className={showsStyle}>
                   <div className='filterIcon' id='showsIconSearch'></div>
                   <p className='filtersTitle'>Shows</p>
                 </div>

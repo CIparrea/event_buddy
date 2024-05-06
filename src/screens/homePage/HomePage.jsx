@@ -57,6 +57,12 @@ function HomePage({
             }}
             className="eventPageHeart"
           ></button>
+          <button
+            onClick={(event) => {
+              innerButtonClick(event);
+            }}
+            className="favoriteEventPageHeartBtn"
+          ></button>
         </div>
       </a>
 

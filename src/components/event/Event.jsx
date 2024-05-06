@@ -30,7 +30,7 @@ function Event({ event }) {
   }
 
   return (
-    <button
+    <div
       onClick={() => {
         outerButtonClick();
       }}
@@ -51,9 +51,15 @@ function Event({ event }) {
             }}
             className="heart"
           ></button>
+          <button
+            onClick={() => {
+              innerButtonClick(event);
+            }}
+            className="favoriteEventBtn"
+          ></button>
         </div>
       </div>
-    </button>
+    </div>
   );
 }
 
