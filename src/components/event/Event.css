@@ -62,6 +62,26 @@
     background-position: center;
 }
 
+
+.favoriteEventBtn{
+    background: url(../../../public/img/heartRedFilled.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: black;
+    height: 8vh;
+    width: 8vh;
+    padding: 0;
+    border: transparent;
+}
+
+.favoriteEventBtn:hover{
+    background: url(../../../public/img/heartRed.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
 .eventFooter{
     display: flex;
     justify-content: center;

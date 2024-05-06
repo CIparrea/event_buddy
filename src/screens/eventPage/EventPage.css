@@ -16,7 +16,6 @@
     display: flex;
     flex-direction: column;
     text-align: left;
-
 }
 
 .eventPagePicture{
@@ -70,6 +69,28 @@
 }
 
 .eventPageHeart:hover{
+    background: url(../../../public/img/heartRed.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.05);
+    transition: 0.2s ease-in-out;
+}
+
+.favoriteEventPageHeartBtn{
+    background: url(../../../public/img/heartRedFilled.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: black;
+    height: 12vh;
+    width: 12vh;
+    padding: 0;
+    border: transparent;
+    transition: 0.2s ease-in;
+}
+
+.favoriteEventPageHeartBtn:hover{
     background: url(../../../public/img/heartRed.png);
     background-repeat: no-repeat;
     background-size: cover;
