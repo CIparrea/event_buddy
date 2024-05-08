@@ -16,6 +16,7 @@ import {
   getMusicEvents,
   getShowsEvents,
 } from "./Services/events.js";
+import { getSavedEvents, verifyUser } from "./Services/users.js";
 
 function App() {
   const [userProfile, setUserProfile] = useState(null);
@@ -26,44 +27,62 @@ function App() {
   const [spotlightEvents, setSpotlightEvents] = useState([]);
   const [favoriteEvents, setFavoriteEvents] = useState([]);
 
+  const fetchUserProfile = async () => {
+    const user = await verifyUser();
+    setUserProfile(user);
+  };
+
+  fetchUserProfile();
 
   useEffect(() => {
     const fetchEvents = async () => {
       const allEvents = [sportsEvents, musicEvents, showsEvents].flat(Infinity);
       let currentIndex = allEvents.length;
 
-      while (currentIndex != 0) {
+      while (currentIndex !== 0) {
         let randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex--;
-    
+
         [allEvents[currentIndex], allEvents[randomIndex]] = [
-          allEvents[randomIndex], allEvents[currentIndex]];
+          allEvents[randomIndex],
+          allEvents[currentIndex],
+        ];
       }
-      
-      setEvents(allEvents) 
-      setSpotlightEvents(allEvents[10])
-    }; 
+
+      setEvents(allEvents);
+      setSpotlightEvents(allEvents[10]);
+    };
 
     fetchEvents();
-  }, [sportsEvents, musicEvents, showsEvents]); 
-  
+  }, [sportsEvents, musicEvents, showsEvents]);
+
   useEffect(() => {
     const fetchData = async () => {
       const sportsEventsfetched = await getSportsEvents();
       const musicEventsfetched = await getMusicEvents();
       const showsEventsfetched = await getShowsEvents();
 
-      console.log("sportsevents",sportsEventsfetched);
-      console.log("musicevents",musicEventsfetched);
-      console.log("showsevents",showsEventsfetched);
+      console.log("sportsevents", sportsEventsfetched);
+      console.log("musicevents", musicEventsfetched);
+      console.log("showsevents", showsEventsfetched);
 
-      setSportsEvents(sportsEventsfetched)
-      setMusicEvents(musicEventsfetched)
-      setShowsEvents(showsEventsfetched)
+      setSportsEvents(sportsEventsfetched);
+      setMusicEvents(musicEventsfetched);
+      setShowsEvents(showsEventsfetched);
     };
-    
+
     fetchData();
   }, []);
+
+  useEffect(() => {
+    const fetchFavorites = async () => {
+      const favoriteEventsfetched = await getSavedEvents();
+      console.log("favorite events", favoriteEventsfetched);
+      setFavoriteEvents(favoriteEventsfetched);
+    };
+
+    fetchFavorites();
+  }, [favoriteEvents]);
 
   return (
     <div className="App">
@@ -80,6 +99,7 @@ function App() {
               showsEvents={showsEvents}
               setUserProfile={setUserProfile}
               spotlightEvents={spotlightEvents}
+              favoriteEvents={favoriteEvents}
             />
           }
         />
@@ -93,6 +113,7 @@ function App() {
               musicEvents={musicEvents}
               showsEvents={showsEvents}
               setUserProfile={setUserProfile}
+              favoriteEvents={favoriteEvents}
             />
           }
         />
@@ -102,6 +123,7 @@ function App() {
             <FavoritesPage
               userProfile={userProfile}
               setUserProfile={setUserProfile}
+              favoriteEvents={favoriteEvents}
             />
           }
         />
@@ -111,6 +133,7 @@ function App() {
             <EventPage
               userProfile={userProfile}
               setUserProfile={setUserProfile}
+              favoriteEvents={favoriteEvents}
             />
           }
         />

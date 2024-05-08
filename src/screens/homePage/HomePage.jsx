@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./HomePage.css";
 import Navbar from "../../components/navbar/Navbar.jsx";
 import Event from "../../components/event/Event.jsx";
 import { useNavigate } from "react-router-dom";
 import Credits from "../../components/credits/Credits.jsx";
-
+import { updateSavedEvents, deleteSavedEvents } from "../../Services/users.js";
 
 function HomePage({
   userProfile,
@@ -14,51 +14,64 @@ function HomePage({
   sportsEvents,
   musicEvents,
   showsEvents,
-  spotlightEvents
+  spotlightEvents,
+  favoriteEvents
 }) {
   const navigate = useNavigate();
   // console.log(spotlightEvents)
-  
+
   function outerButtonClick() {
-    navigate(`/events/${spotlightEvents.id}`, {state: spotlightEvents});
+    navigate(`/events/${spotlightEvents.id}`, { state: spotlightEvents });
   }
 
-  function addFavorite(event) {
-    event.stopPropagation();
-    console.log("add favorite")
-  }
+  const addFavorite = async () => {
+    // event.stopPropagation();
+    try {
+      await updateSavedEvents(spotlightEvents);
+      favoriteEvents.push(spotlightEvents.id);
+    } catch (error) {
+      console.error("Error updating saved events:", error);
+    }
+  };
 
-  function removeFavorite(event) {
-    event.stopPropagation();
-    console.log("remove favorite")
-  }
+  const removeFavorite = async () => {
+    // event.stopPropagation();
+    try {
+      await deleteSavedEvents(spotlightEvents);
+      favoriteEvents.splice(favoriteEvents.indexOf(spotlightEvents.id));
+    } catch (error) {
+      console.error("Error deleting saved event: ", error);
+    }
+  };
 
   function spotlightImage() {
     const images = spotlightEvents.images;
-    const bestQualityImage = images?.find(obj=>obj.width > "1800");
-    const eventImage = bestQualityImage.url
-    return eventImage
+    const bestQualityImage = images?.find((obj) => obj.width > "1800");
+    const eventImage = bestQualityImage.url;
+    return eventImage;
   }
-  
-  function isFavorite(){
-    return(
+
+  function isFavorite() {
+    return (
       <>
-      <button
-            onClick={(event) => {
-              addFavorite(event);
-            }}
-            className="eventPageHeart"
-          ></button>
+        {favoriteEvents.includes(spotlightEvents.id) ? (
           <button
-            onClick={(event) => {
-              removeFavorite(event);
+            onClick={() => {
+              removeFavorite(spotlightEvents);
             }}
             className="favoriteEventPageHeartBtn"
           ></button>
+        ) : (
+          <button
+            onClick={() => {
+              addFavorite(spotlightEvents);
+            }}
+            className="eventPageHeart"
+          ></button>
+        )}
       </>
-    )
+    );
   }
-  
 
   return (
     <div className="homePage">
@@ -68,8 +81,9 @@ function HomePage({
         setUserProfile={setUserProfile}
       />
       <a>
-        <div className="spotlight"
-          style={{backgroundImage: `url('${spotlightImage()}')`}}
+        <div
+          className="spotlight"
+          style={{ backgroundImage: `url('${spotlightImage()}')` }}
           onClick={() => {
             outerButtonClick();
           }}
@@ -78,7 +92,6 @@ function HomePage({
           {isFavorite()}
         </div>
       </a>
-
 
       <div className="homeContent">
         <div className="homeComponent">
@@ -89,7 +102,13 @@ function HomePage({
           <div className="homeCategory">
             {musicEvents &&
               musicEvents?.map((event) => {
-                return <Event event={event} key={event.id} />;
+                return (
+                  <Event
+                    event={event}
+                    key={event.id}
+                    favoriteEvents={favoriteEvents}
+                  />
+                );
               })}
           </div>
         </div>
@@ -101,7 +120,13 @@ function HomePage({
           <div className="homeCategory">
             {sportsEvents &&
               sportsEvents?.map((event) => {
-                return <Event event={event} key={event.id} />;
+                return (
+                  <Event
+                    event={event}
+                    key={event.id}
+                    favoriteEvents={favoriteEvents}
+                  />
+                );
               })}
           </div>
         </div>
@@ -112,9 +137,16 @@ function HomePage({
             <h1 className="categoryTitle"> Shows</h1>
           </div>
           <div className="homeCategory">
-            {showsEvents && showsEvents?.map((event) => {
-              return <Event event={event} key={event.id} />;
-            })}
+            {showsEvents &&
+              showsEvents?.map((event) => {
+                return (
+                  <Event
+                    event={event}
+                    key={event.id}
+                    favoriteEvents={favoriteEvents}
+                  />
+                );
+              })}
           </div>
         </div>
       </div>
