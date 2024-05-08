@@ -82,7 +82,11 @@ function App() {
     };
 
     fetchFavorites();
-  }, [favoriteEvents]);
+  }, []);
+
+  useEffect(() => {
+    console.log("Favorite events updated!")
+  }, [favoriteEvents])
 
   return (
     <div className="App">
