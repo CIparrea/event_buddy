@@ -46,12 +46,11 @@ export const getShowsEvents = async () => {
   }
 };
 
-export const getSavedEvent = async (eventId) => {
+export const getSavedEvent = async (savedEventId) => {
   try {
     const resp = await axios.get(
-      `https://app.ticketmaster.com/discovery/v2/events/${eventId}?apikey=${apiKey}&locale=*`
+      `https://app.ticketmaster.com/discovery/v2/events?apikey=${apiKey}&id=${savedEventId}&locale=*`
     );
-    console.log("This is a Saved Event:", resp.data._embedded.events);
     return resp.data._embedded.events;
   } catch (error) {
     console.error("Error verifying user: ", error);

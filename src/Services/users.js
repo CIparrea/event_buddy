@@ -42,13 +42,23 @@ export const getSavedEvents = async () => {
   }
 };
 
-export const updateSavedEvents = async (eventId) => {
+export const updateSavedEvents = async (event) => {
   try {
-    const resp = await api.put(`users/saved-event/${eventId}`);
-    const user = (localStorage.getItem("token", resp.data.token));
+    const resp = await api.put(`users/saved-event/${event.id}`);
+    const user = localStorage.getItem("token", resp.data.token);
     return user;
   } catch (error) {
-    console.error("Error updating saved events: ", error);
+    console.error("Error updating saved event: ", error);
+  }
+};
+
+export const deleteSavedEvents = async (event) => {
+  try {
+    const resp = await api.delete(`users/saved-event/${event.id}`);
+    const user = localStorage.getItem("token", resp.data.token);
+    return user;
+  } catch (error) {
+    console.error("Error deleting saved event: ", error);
   }
 };
 

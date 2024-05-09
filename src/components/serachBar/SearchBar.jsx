@@ -18,20 +18,6 @@ function SearchBar({ show }) {
     handleSearch(form);
   };
 
-  useEffect(() => {
-    const handleSearch = async (form) => {
-      try {
-        const fetchSearchedEvents = await getSearchedEvents(form);
-        setSearchedEvents(fetchSearchedEvents);
-        console.log(searchedEvents);
-      } catch (error) {
-        console.error("Error searching for events: ", error);
-      }
-    };
-
-    handleSearch(form);
-  }, []);
-
   const handleSearch = async (form) => {
     try {
       const fetchSearchedEvents = await getSearchedEvents(form);
