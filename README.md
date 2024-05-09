@@ -12,35 +12,42 @@ Welcome to Event Buddy! Event Buddy is a web application that allows you to sear
 
 
 ## Wireframes
-Main Page
+### Main Page
 <img src='https://github.com/CIparrea/event_buddy/blob/main/public/wireframes/mainPageWF.png'>
 \
 \
-Search and Filter Events
+
+### Search and Filter Events
 <img src='https://github.com/CIparrea/event_buddy/blob/main/public/wireframes/allEventsPageWF.png'>
 \
 \
-Event Detail
+
+### Event Detail
 <img src='https://github.com/CIparrea/event_buddy/blob/main/public/wireframes/eventPageWF.png'>
 \
 \
-Favorites
+
+### Favorites
 <img src='https://github.com/CIparrea/event_buddy/blob/main/public/wireframes/favoritesPageWF.png'>
 \
 \
-Sign Up
+
+### Sign Up
 <img src='https://github.com/CIparrea/event_buddy/blob/main/public/wireframes/signupPageWF.png'>
 \
 \
-Log In
+
+### Log In
 <img src='https://github.com/CIparrea/event_buddy/blob/main/public/wireframes/loginPageWF.png'>
 \
 \
-Profile
+
+### Profile
 <img src='https://github.com/CIparrea/event_buddy/blob/main/public/wireframes/profilePageWF.png'>
 \
 \
-Edit Profile
+
+### Edit Profile
 <img src='https://github.com/CIparrea/event_buddy/blob/main/public/wireframes/efitProfilePageWF.png'>
 
 
