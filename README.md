@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# Event Buddy
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About
+Welcome to Event Buddy! Event Buddy is a web application that allows you to search and save sports, shows, and music events. It is responsive across desktop and mobile platforms, and is powered by the [Ticketmaster Discovery API](https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/).
 
-## Available Scripts
 
-In the project directory, you can run:
+## Site Images
+<img src=''>
+<img src=''>
+<img src=''>
+<img src=''>
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Wireframes
+<img src='https://github.com/CIparrea/event_buddy/blob/main/public/wireframes/mainPageWF.png'>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<img src='https://github.com/CIparrea/event_buddy/blob/main/public/wireframes/allEventsPageWF.png'>
 
-### `npm test`
+<img src='https://github.com/CIparrea/event_buddy/blob/main/public/wireframes/eventPageWF.png'>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img src='https://github.com/CIparrea/event_buddy/blob/main/public/wireframes/favoritesPageWF.png'>
 
-### `npm run build`
+<img src='https://github.com/CIparrea/event_buddy/blob/main/public/wireframes/signupPageWF.png'>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img src='https://github.com/CIparrea/event_buddy/blob/main/public/wireframes/loginPageWF.png'>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img src='https://github.com/CIparrea/event_buddy/blob/main/public/wireframes/profilePageWF.png'>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img src='https://github.com/CIparrea/event_buddy/blob/main/public/wireframes/efitProfilePageWF.png'>
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Tech Stack
+- [React](https://react.dev/)
+- [Node.js](https://nodejs.org/en)
+- [Express](https://expressjs.com/)
+- [Mongoose](https://mongoosejs.com/)
+- [MongoDB](https://www.mongodb.com/)
+- [Postman](https://www.postman.com/)
+- [Netlify](https://app.netlify.com/login)
+- [Heroku](https://www.heroku.com/)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Installation
+To install Event Buddy:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Clone the repository
+- In your terminal, initialize npm
 
-## Learn More
+```
+  npm init -y
+```
+- Install dependencies
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+  npm install
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Start the server
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+  npm start
