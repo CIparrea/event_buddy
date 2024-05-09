@@ -27,12 +27,14 @@ function App() {
   const [spotlightEvents, setSpotlightEvents] = useState([]);
   const [favoriteEvents, setFavoriteEvents] = useState([]);
 
-  const fetchUserProfile = async () => {
-    const user = await verifyUser();
-    setUserProfile(user);
-  };
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      const user = await verifyUser();
+      setUserProfile(user);
+    };
 
-  fetchUserProfile();
+    fetchUserProfile();
+  }, []);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -84,8 +86,7 @@ function App() {
     fetchFavorites();
   }, []);
 
-  useEffect(() => {
-  }, [favoriteEvents])
+  useEffect(() => {}, [favoriteEvents]);
 
   return (
     <div className="App">
