@@ -11,7 +11,6 @@ function Event({ event, favoriteEvents }) {
   }
 
   const addFavorite = async () => {
-    // event.stopPropagation();
     try {
       await updateSavedEvents(event);
       favoriteEvents.push(event.id);
@@ -21,7 +20,6 @@ function Event({ event, favoriteEvents }) {
   };
 
   const removeFavorite = async () => {
-    // event.stopPropagation();
     try {
       await deleteSavedEvents(event);
       favoriteEvents.splice(favoriteEvents.indexOf(event.id));
@@ -37,19 +35,22 @@ function Event({ event, favoriteEvents }) {
     return eventImage;
   }
 
-  function isFavorite() {
+  function isFavorite(event) {
+    
     return (
       <>
         {favoriteEvents.includes(event.id) ? (
           <button
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               removeFavorite(event);
             }}
             className="favoriteEventPageHeartBtn"
           ></button>
         ) : (
           <button
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               addFavorite(event);
             }}
             className="eventPageHeart"
@@ -81,7 +82,7 @@ function Event({ event, favoriteEvents }) {
             PRICE STARTS $
             {event.priceRanges ? Math.ceil(event.priceRanges[0].min) : 0}{" "}
           </h5>
-          {isFavorite()}
+          {isFavorite(event)}
         </div>
       </div>
     </div>
