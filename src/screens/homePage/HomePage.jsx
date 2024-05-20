@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import "./HomePage.css";
 import Navbar from "../../components/navbar/Navbar.jsx";
 import Event from "../../components/event/Event.jsx";
@@ -17,6 +17,15 @@ function HomePage({
   spotlightEvents,
   favoriteEvents
 }) {
+
+  const [modal, setModal] = useState(true)
+  
+  useEffect(() => {
+    setTimeout(() => {
+      setModal(false)
+    },2000);
+  }, [spotlightEvents]); 
+
   const navigate = useNavigate();
   // console.log(spotlightEvents)
 
@@ -75,11 +84,17 @@ function HomePage({
 
   return (
     <div className="homePage">
+      {modal && (
+        <div className="modal-container">
+            <h2 className="loadingText">Loading...</h2>
+        </div>
+      )}
       <Navbar
         show="noshow"
         userProfile={userProfile}
         setUserProfile={setUserProfile}
       />
+      {spotlightEvents && (
       <a>
         <div
           className="spotlight"
@@ -92,6 +107,7 @@ function HomePage({
           {isFavorite()}
         </div>
       </a>
+      )}
 
       <div className="homeContent">
         <div className="homeComponent">

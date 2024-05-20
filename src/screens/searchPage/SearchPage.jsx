@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import "./SearchPage.css";
 import Navbar from "../../components/navbar/Navbar.jsx";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
@@ -15,7 +15,9 @@ function SearchPage({
   musicEvents,
   showsEvents,
   favoriteEvents,
+  spotlightEvents,
 }) {
+
   const [greenAllEvents, setGreenAllEvents] = useState(true);
   const [greenMusic, setGreenMusic] = useState(false);
   const [greenSports, setGreenSports] = useState(false);
@@ -25,8 +27,21 @@ function SearchPage({
   const sportsStyle = greenSports ? "filtersBtnActive" : "filtersBtn";
   const showsStyle = greenShows ? "filtersBtnActive" : "filtersBtn";
 
+  const [modal, setModal] = useState(true)
+  useEffect(() => {
+    setTimeout(() => {
+      setModal(false)
+      console.log("finished loading")
+    },2000);
+  }, [spotlightEvents]);  
+
   return (
     <div className="searchPage">
+      {modal && (
+        <div className="modal-container">
+            <h2 className="loadingText">Loading...</h2>
+        </div>
+      )}
       <Navbar
         show="show"
         userProfile={userProfile}

@@ -21,11 +21,11 @@ import { getSavedEvents, verifyUser } from "./Services/users.js";
 function App() {
   const [userProfile, setUserProfile] = useState(null);
   const [events, setEvents] = useState([]);
-  const [sportsEvents, setSportsEvents] = useState([]);
-  const [musicEvents, setMusicEvents] = useState([]);
-  const [showsEvents, setShowsEvents] = useState([]);
-  const [spotlightEvents, setSpotlightEvents] = useState([]);
-  const [favoriteEvents, setFavoriteEvents] = useState([]);
+  const [sportsEvents, setSportsEvents] = useState(null);
+  const [musicEvents, setMusicEvents] = useState(null);
+  const [showsEvents, setShowsEvents] = useState(null);
+  const [spotlightEvents, setSpotlightEvents] = useState(null);
+  const [favoriteEvents, setFavoriteEvents] = useState(null);
 
   useEffect(() => {
     const fetchUserProfile = async () => {
@@ -72,17 +72,15 @@ function App() {
           allEvents[currentIndex],
         ];
       }
-
       setEvents(allEvents);
       setSpotlightEvents(allEvents[10]);
     };
 
-    fetchEvents();
+    if(sportsEvents && musicEvents && showsEvents){
+      fetchEvents();
+    }
   }, [sportsEvents, musicEvents, showsEvents]);
 
-
-  useEffect(() => {
-  }, [favoriteEvents]);
 
   return (
     <div className="App">
@@ -114,6 +112,7 @@ function App() {
               showsEvents={showsEvents}
               setUserProfile={setUserProfile}
               favoriteEvents={favoriteEvents}
+              spotlightEvents={spotlightEvents}
             />
           }
         />

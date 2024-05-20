@@ -68,6 +68,7 @@ function LoginPage({userProfile, setUserProfile}) {
           </Link>
         </p>
       </div>
+
     </div>
   );
 }
