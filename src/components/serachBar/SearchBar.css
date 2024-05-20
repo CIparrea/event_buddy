@@ -48,6 +48,7 @@
     background: url(../../../public/img/searchIcon.png);
     background-repeat: no-repeat;
     background-size: cover;
+    border: none;
 }
 
 @media (max-width: 760px) {
