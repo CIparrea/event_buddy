@@ -148,10 +148,12 @@ function App() {
         <Route
           path="/profile"
           element={
-            <ProfilePage
+            userProfile ? <ProfilePage
               userProfile={userProfile}
               setUserProfile={setUserProfile}
-            />
+            /> : <LoginPage userProfile={userProfile}
+            setUserProfile={setUserProfile}
+          />
           }
         />
         <Route
