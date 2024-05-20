@@ -32,8 +32,30 @@ function App() {
       const user = await verifyUser();
       setUserProfile(user);
     };
-
     fetchUserProfile();
+
+    const fetchData = async () => {
+      const sportsEventsfetched = await getSportsEvents();
+      const musicEventsfetched = await getMusicEvents();
+      const showsEventsfetched = await getShowsEvents();
+
+      console.log("sportsevents", sportsEventsfetched);
+      console.log("musicevents", musicEventsfetched);
+      console.log("showsevents", showsEventsfetched);
+
+      setSportsEvents(sportsEventsfetched);
+      setMusicEvents(musicEventsfetched);
+      setShowsEvents(showsEventsfetched);
+    };
+    fetchData();
+
+
+    const fetchFavorites = async () => {
+      const favoriteEventsfetched = await getSavedEvents();
+      console.log("favorite events", favoriteEventsfetched);
+      setFavoriteEvents(favoriteEventsfetched);
+    };
+    fetchFavorites();
   }, []);
 
   useEffect(() => {
@@ -58,35 +80,9 @@ function App() {
     fetchEvents();
   }, [sportsEvents, musicEvents, showsEvents]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const sportsEventsfetched = await getSportsEvents();
-      const musicEventsfetched = await getMusicEvents();
-      const showsEventsfetched = await getShowsEvents();
-
-      console.log("sportsevents", sportsEventsfetched);
-      console.log("musicevents", musicEventsfetched);
-      console.log("showsevents", showsEventsfetched);
-
-      setSportsEvents(sportsEventsfetched);
-      setMusicEvents(musicEventsfetched);
-      setShowsEvents(showsEventsfetched);
-    };
-
-    fetchData();
-  }, []);
 
   useEffect(() => {
-    const fetchFavorites = async () => {
-      const favoriteEventsfetched = await getSavedEvents();
-      console.log("favorite events", favoriteEventsfetched);
-      setFavoriteEvents(favoriteEventsfetched);
-    };
-
-    fetchFavorites();
-  }, []);
-
-  useEffect(() => {}, [favoriteEvents]);
+  }, [favoriteEvents]);
 
   return (
     <div className="App">

@@ -45,7 +45,7 @@ function Event({ event, favoriteEvents }) {
               e.stopPropagation();
               removeFavorite(event);
             }}
-            className="favoriteEventPageHeartBtn"
+            className="favoriteEventBtn"
           ></button>
         ) : (
           <button
@@ -53,7 +53,7 @@ function Event({ event, favoriteEvents }) {
               e.stopPropagation();
               addFavorite(event);
             }}
-            className="eventPageHeart"
+            className="heart"
           ></button>
         )}
       </>
