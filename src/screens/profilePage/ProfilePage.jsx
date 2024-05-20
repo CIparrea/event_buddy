@@ -1,22 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar.jsx";
-import { verifyUser } from "../../Services/users.js";
 import "./ProfilePage.css";
-import { signOut } from '../../Services/users.js';
+import { signOut } from "../../Services/users.js";
 
-function ProfilePage({userProfile, setUserProfile}) {
+function ProfilePage({ userProfile, setUserProfile }) {
   const navigate = useNavigate();
 
-  const handleLogOut = async () =>{
-    await signOut()
-    setUserProfile(null)
+  const handleLogOut = async () => {
+    await signOut();
+    setUserProfile(null);
     navigate("/login");
-  }
+  };
 
   return (
     <div className="profilePage">
-      <Navbar show="noshow" userProfile={userProfile} setUserProfile={setUserProfile}/>
+      <Navbar
+        show="noshow"
+        userProfile={userProfile}
+        setUserProfile={setUserProfile}
+      />
       <div className="userContainer">
         <div className="userPicture"></div>
         <div className="userInfo">
@@ -43,14 +46,13 @@ function ProfilePage({userProfile, setUserProfile}) {
 
           <button
             onClick={() => {
-              handleLogOut()
+              handleLogOut();
             }}
             className="profileBtn"
             id="logoutProfileBtn"
           >
             Log out
           </button>
-
         </div>
       </div>
     </div>
