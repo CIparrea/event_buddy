@@ -90,9 +90,10 @@ function HomePage({
         </div>
       )}
       <Navbar
-        show="noshow"
+        show="show"
         userProfile={userProfile}
         setUserProfile={setUserProfile}
+        favoriteEvents={favoriteEvents}
       />
       {spotlightEvents && (
       <a>
