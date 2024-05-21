@@ -46,6 +46,7 @@ function SearchPage({
         show="show"
         userProfile={userProfile}
         setUserProfile={setUserProfile}
+        favoriteEvents={favoriteEvents}
       />
       <Tabs className="searchScreen">
         <TabList className="filterOptions">

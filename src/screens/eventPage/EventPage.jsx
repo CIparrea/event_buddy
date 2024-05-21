@@ -2,11 +2,13 @@ import React from "react";
 import "./EventPage.css";
 import Navbar from "../../components/navbar/Navbar.jsx";
 import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { updateSavedEvents, deleteSavedEvents } from "../../Services/users.js";
 
 function EventPage({ userProfile, setUserProfile, favoriteEvents }) {
   const location = useLocation();
   const event = location.state;
+  const navigate = useNavigate();
 
   const addFavorite = async () => {
     // event.stopPropagation();
@@ -38,17 +40,26 @@ function EventPage({ userProfile, setUserProfile, favoriteEvents }) {
   function isFavorite() {
     return (
       <>
-        {favoriteEvents.includes(event.id) ? (
+        {userProfile? (
+          favoriteEvents.includes(event.id) ? (
+            <button
+              onClick={() => {
+                removeFavorite(event);
+              }}
+              className="favoriteEventPageHeartBtn"
+            ></button>
+          ) : (
+            <button
+              onClick={() => {
+                addFavorite(event);
+              }}
+              className="eventPageHeart"
+            ></button>
+          )
+        ):(
           <button
             onClick={() => {
-              removeFavorite(event);
-            }}
-            className="favoriteEventPageHeartBtn"
-          ></button>
-        ) : (
-          <button
-            onClick={() => {
-              addFavorite(event);
+             navigate(`/profile/`)
             }}
             className="eventPageHeart"
           ></button>

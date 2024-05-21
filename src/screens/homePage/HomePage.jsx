@@ -63,21 +63,30 @@ function HomePage({
   function isFavorite() {
     return (
       <>
-        {favoriteEvents.includes(spotlightEvents.id) ? (
-          <button
-            onClick={() => {
-              removeFavorite(spotlightEvents);
-            }}
-            className="favoriteEventPageHeartBtn"
-          ></button>
-        ) : (
-          <button
-            onClick={() => {
-              addFavorite(spotlightEvents);
-            }}
-            className="eventPageHeart"
-          ></button>
-        )}
+      {userProfile? (
+      favoriteEvents.includes(spotlightEvents.id) ? (
+        <button
+          onClick={() => {
+            removeFavorite(spotlightEvents);
+          }}
+          className="favoriteEventPageHeartBtn"
+        ></button>
+      ) : (
+        <button
+          onClick={() => {
+            addFavorite(spotlightEvents);
+          }}
+          className="eventPageHeart"
+        ></button>
+      )
+      ):(
+      <button
+        onClick={(event) => {
+          event.stopPropagation()
+          navigate('/profile/')
+        }}
+        className="eventPageHeart"
+      ></button>)}
       </>
     );
   }
@@ -90,9 +99,10 @@ function HomePage({
         </div>
       )}
       <Navbar
-        show="noshow"
+        show="show"
         userProfile={userProfile}
         setUserProfile={setUserProfile}
+        favoriteEvents={favoriteEvents}
       />
       {spotlightEvents && (
       <a>

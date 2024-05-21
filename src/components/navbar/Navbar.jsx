@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { signOut } from '../../Services/users.js';
 
 
-function Navbar({show, userProfile, setUserProfile}) {
+function Navbar({show, userProfile, setUserProfile, favoriteEvents, }) {
   const navigate = useNavigate();
 
   const handleLogOut = async () =>{
@@ -13,20 +13,6 @@ function Navbar({show, userProfile, setUserProfile}) {
     setUserProfile(null)
     navigate("/login");
   }
-
-  const allEventsButton = () =>{
-    if(show==="noshow"){
-      return(
-        <button 
-        onClick={() => {
-          navigate("/search");
-        }}
-        className='navBarMenuBtn'
-        >All Events</button>
-      )
-    }
-    }
-  
 
   const navBarBtn = () => {
     if(userProfile){
@@ -74,10 +60,16 @@ function Navbar({show, userProfile, setUserProfile}) {
         }}
         className='logoBtn'
         ></button>
-        {allEventsButton()}
+
+        <button 
+        onClick={() => {
+          navigate("/search");
+        }}
+        className='navBarMenuBtn'
+        >All Events</button>
         </div>
 
-        <SearchBar show={show} />
+        <SearchBar show={show} favoriteEvents={favoriteEvents}/>
         <div className='navBarMenu'>
             <div className='computerOptions'>
               {navBarBtn()}

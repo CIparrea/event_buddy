@@ -25,7 +25,7 @@ function App() {
   const [musicEvents, setMusicEvents] = useState(null);
   const [showsEvents, setShowsEvents] = useState(null);
   const [spotlightEvents, setSpotlightEvents] = useState(null);
-  const [favoriteEvents, setFavoriteEvents] = useState(null);
+  const [favoriteEvents, setFavoriteEvents] = useState([]);
 
   useEffect(() => {
     const fetchUserProfile = async () => {
@@ -55,7 +55,11 @@ function App() {
       console.log("favorite events", favoriteEventsfetched);
       setFavoriteEvents(favoriteEventsfetched);
     };
-    fetchFavorites();
+
+    if(userProfile){
+      fetchFavorites();
+    }
+
   }, []);
 
   useEffect(() => {
