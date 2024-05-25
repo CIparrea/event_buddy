@@ -78,7 +78,7 @@ function HomePage({
           }}
           className="eventPageHeart"
         ></button>
-      )
+      ) 
       ):(
       <button
         onClick={(event) => {
@@ -133,6 +133,7 @@ function HomePage({
                     event={event}
                     key={event.id}
                     favoriteEvents={favoriteEvents}
+                    userProfile = {userProfile}
                   />
                 );
               })}

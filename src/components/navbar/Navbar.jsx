@@ -69,7 +69,7 @@ function Navbar({show, userProfile, setUserProfile, favoriteEvents, }) {
         >All Events</button>
         </div>
 
-        <SearchBar show={show} favoriteEvents={favoriteEvents}/>
+        <SearchBar show={show} favoriteEvents={favoriteEvents} userProfile = {userProfile}/>
         <div className='navBarMenu'>
             <div className='computerOptions'>
               {navBarBtn()}

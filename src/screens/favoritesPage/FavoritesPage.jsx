@@ -56,7 +56,7 @@ function FavoritesPage({ userProfile, setUserProfile, favoriteEvents }) {
       />
       <div className="favoriteEvents">
       {events && events.map((event) => (
-          <Event event={event} key={event.id} favoriteEvents={favoriteEvents}/>
+          <Event event={event} key={event.id} favoriteEvents={favoriteEvents} userProfile = {userProfile}/>
         ))}
       </div>
     </div>
