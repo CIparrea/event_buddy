@@ -4,13 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { getSearchedEvents } from "../../Services/events.js";
 import Event from "../event/Event.jsx";
 
-function SearchBar({ show, favoriteEvents  }) {
+function SearchBar({ show, favoriteEvents, userProfile }) {
   const [searchedEvents, setSearchedEvents] = useState([]);
   const [form, setForm] = useState("");
   const [searchModal, setSearchModal] = useState(false);
-
-
-
 
   const handleChange = (event) => {
     setForm(event.target.value);
@@ -61,6 +58,7 @@ function SearchBar({ show, favoriteEvents  }) {
                     event={event}
                     key={event.id}
                     favoriteEvents={favoriteEvents}
+                    userProfile = {userProfile}
                   />
                 );
               })}

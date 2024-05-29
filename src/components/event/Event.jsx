@@ -3,7 +3,7 @@ import "./Event.css";
 import { useNavigate } from "react-router-dom";
 import { deleteSavedEvents, updateSavedEvents } from "../../Services/users.js";
 
-function Event({ event, favoriteEvents }) {
+function Event({ event, favoriteEvents, userProfile }) {
   const navigate = useNavigate();
 
   function outerButtonClick() {
@@ -36,25 +36,34 @@ function Event({ event, favoriteEvents }) {
   }
 
   function isFavorite(event) {
-    
     return (
       <>
-        {favoriteEvents.includes(event.id) ? (
+        {userProfile? (
+          favoriteEvents.includes(event.id) ? (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                removeFavorite(event);
+              }}
+              className="favoriteEventBtn"
+            ></button>
+          ) : (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                addFavorite(event);
+              }}
+              className="heart"
+            ></button>
+          )
+        ):(
           <button
-            onClick={(e) => {
-              e.stopPropagation();
-              removeFavorite(event);
-            }}
-            className="favoriteEventBtn"
-          ></button>
-        ) : (
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              addFavorite(event);
-            }}
-            className="heart"
-          ></button>
+              onClick={(e) => {
+                e.stopPropagation();
+                navigate('/profile/')
+              }}
+              className="heart"
+            ></button>
         )}
       </>
     );

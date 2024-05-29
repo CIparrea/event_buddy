@@ -110,7 +110,7 @@ function SearchPage({
         <div className="eventsDisplay">
           <TabPanel>
             <div>
-              <AllEvents events={events} favoriteEvents={favoriteEvents} />
+              <AllEvents events={events} favoriteEvents={favoriteEvents} userProfile = {userProfile}/>
             </div>
           </TabPanel>
           <TabPanel>
@@ -118,6 +118,7 @@ function SearchPage({
               <MusicEvents
                 musicEvents={musicEvents}
                 favoriteEvents={favoriteEvents}
+                userProfile = {userProfile}
               />
             </div>
           </TabPanel>
@@ -126,6 +127,7 @@ function SearchPage({
               <SportsEvents
                 sportsEvents={sportsEvents}
                 favoriteEvents={favoriteEvents}
+                userProfile = {userProfile}
               />
             </div>
           </TabPanel>
@@ -134,6 +136,7 @@ function SearchPage({
               <ShowsEvents
                 showsEvents={showsEvents}
                 favoriteEvents={favoriteEvents}
+                userProfile = {userProfile}
               />
             </div>
           </TabPanel>
