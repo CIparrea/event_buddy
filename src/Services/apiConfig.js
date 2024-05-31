@@ -13,7 +13,7 @@ const getToken = () => {
 const api = axios.create({
   baseURL:
     process.env.NODE_ENV === "production"
-      ? "https://ourappname.herokuapp.com/api" //update this once backend is deployed
+      ? "https://event-buddy-b351aabbc099.herokuapp.com/api"
       : "http://localhost:3017/api",
 });
 
