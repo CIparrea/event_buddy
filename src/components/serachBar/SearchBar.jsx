@@ -66,13 +66,13 @@ function SearchBar({ show, favoriteEvents, userProfile }) {
               <div className="searchedEvents">
                 {searchedEvents &&
                   searchedEvents?.map((event) => {
-                    return (
-                      <Event
+                    return (event.url ?
+                      (<Event
                         event={event}
                         key={event.id}
                         favoriteEvents={favoriteEvents}
                         userProfile={userProfile}
-                      />
+                      />) : (null)
                     );
                   })}
               </div>
