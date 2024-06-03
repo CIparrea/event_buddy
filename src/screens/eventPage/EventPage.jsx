@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import "./EventPage.css";
 import Navbar from "../../components/navbar/Navbar.jsx";
 import { useLocation } from "react-router-dom";
@@ -10,13 +10,11 @@ function EventPage({ userProfile, setUserProfile, favoriteEvents }) {
   const event = location.state;
   const navigate = useNavigate();
 
-  const [isFav, setIsFav] = useState(false)
-
+  const [isFav, setIsFav] = useState(false);
 
   useEffect(() => {
-    setIsFav(favoriteEvents.includes(event.id))
-  },[])
-
+    setIsFav(favoriteEvents.includes(event.id));
+  }, []);
 
   const addFavorite = async () => {
     // event.stopPropagation();
@@ -48,12 +46,12 @@ function EventPage({ userProfile, setUserProfile, favoriteEvents }) {
   function isFavorite() {
     return (
       <>
-        {userProfile? (
+        {userProfile ? (
           isFav ? (
             <button
               onClick={() => {
                 removeFavorite(event);
-                setIsFav(prev => !prev)
+                setIsFav((prev) => !prev);
               }}
               className="favoriteEventPageHeartBtn"
             ></button>
@@ -61,15 +59,15 @@ function EventPage({ userProfile, setUserProfile, favoriteEvents }) {
             <button
               onClick={() => {
                 addFavorite(event);
-                setIsFav(prev => !prev)
+                setIsFav((prev) => !prev);
               }}
               className="eventPageHeart"
             ></button>
           )
-        ):(
+        ) : (
           <button
             onClick={() => {
-             navigate(`/profile/`)
+              navigate(`/profile/`);
             }}
             className="eventPageHeart"
           ></button>
@@ -96,10 +94,14 @@ function EventPage({ userProfile, setUserProfile, favoriteEvents }) {
           <div className="eventPageDescription">
             <h1 className="eventPageTitle">{event.name}</h1>
             <h2 className="eventPageDate">{event.dates.start.localDate}</h2>
-            <h3 className="eventPageLocation">
-              At {event._embedded.venues[0].name},{" "}
-              {event._embedded.venues[0].state.name}
-            </h3>
+            {event._embedded ? (
+              <h3 className="eventPageLocation">
+                At {event._embedded.venues[0].name},{" "}
+                {event._embedded.venues[0].state.name}
+              </h3>
+            ) : (
+              <h3 className="eventPageLocations">Location TBD</h3>
+            )}
             <h3 className="eventPagePrice">
               Tickets start at $
               {event.priceRanges ? Math.ceil(event.priceRanges[0].min) : 0}

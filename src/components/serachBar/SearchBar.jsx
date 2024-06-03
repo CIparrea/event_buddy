@@ -16,18 +16,25 @@ function SearchBar({ show, favoriteEvents, userProfile }) {
   const handleSearchSubmit = (event) => {
     event.preventDefault();
     handleSearch(form);
-    setSearchModal(true)
   };
 
   const handleSearch = async (form) => {
     try {
       const fetchSearchedEvents = await getSearchedEvents(form);
       setSearchedEvents(fetchSearchedEvents);
-      console.log(searchedEvents);
     } catch (error) {
       console.error("Error searching for events: ", error);
     }
   };
+
+  useEffect(() => {
+    if (searchedEvents.length > 0) {
+      setSearchModal(true);
+      console.log("Searched Events:", searchedEvents);
+    } else {
+      setSearchModal(false);
+    }
+  }, [searchedEvents]);
 
   return (
     <div className="searchBar" id={show}>
@@ -43,31 +50,36 @@ function SearchBar({ show, favoriteEvents, userProfile }) {
       </form>
 
       {searchModal && (
-        <div className="searchModal-container" onClick={()=> setSearchModal(false)}>
+        <div
+          className="searchModal-container"
+          onClick={() => setSearchModal(false)}
+        >
           <div className="searchModal-content">
-          {/* <div className="close-add">
+            {/* <div className="close-add">
             <button className="close" onClick={()=> setSearchModal(false)}>x</button>
           </div> */}
-            <div className="searchDisplay" onClick={(event)=> event.stopPropagation()}>
-            <h2 className="searchTitle">Events matching "{form}"</h2>
+            <div
+              className="searchDisplay"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <h2 className="searchTitle">Events matching "{form}"</h2>
               <div className="searchedEvents">
-              {searchedEvents &&
-              searchedEvents?.map((event) => {
-                return (
-                  <Event
-                    event={event}
-                    key={event.id}
-                    favoriteEvents={favoriteEvents}
-                    userProfile = {userProfile}
-                  />
-                );
-              })}
+                {searchedEvents &&
+                  searchedEvents?.map((event) => {
+                    return (
+                      <Event
+                        event={event}
+                        key={event.id}
+                        favoriteEvents={favoriteEvents}
+                        userProfile={userProfile}
+                      />
+                    );
+                  })}
               </div>
             </div>
           </div>
         </div>
       )}
-
     </div>
   );
 }

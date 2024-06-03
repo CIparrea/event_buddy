@@ -1,15 +1,15 @@
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import "./Event.css";
 import { useNavigate } from "react-router-dom";
 import { deleteSavedEvents, updateSavedEvents } from "../../Services/users.js";
 
-function Event({ event, favoriteEvents, userProfile, setFavList}) {
+function Event({ event, favoriteEvents, userProfile, setFavList }) {
   const navigate = useNavigate();
-  const [isFav, setIsFav] = useState(false)
+  const [isFav, setIsFav] = useState(false);
 
   useEffect(() => {
-    setIsFav(favoriteEvents.includes(event.id))
-  },[])
+    setIsFav(favoriteEvents.includes(event.id));
+  }, []);
 
   function outerButtonClick() {
     navigate(`/events/${event.id}`, { state: event });
@@ -28,7 +28,7 @@ function Event({ event, favoriteEvents, userProfile, setFavList}) {
     try {
       await deleteSavedEvents(event);
       favoriteEvents.splice(favoriteEvents.indexOf(event.id));
-      setFavList(prev => !prev)
+      setFavList((prev) => !prev);
     } catch (error) {
       console.error("Error deleting saved event: ", error);
     }
@@ -44,14 +44,13 @@ function Event({ event, favoriteEvents, userProfile, setFavList}) {
   function isFavorite(event) {
     return (
       <>
-        {userProfile? (
+        {userProfile ? (
           isFav ? (
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 removeFavorite(event);
-                setIsFav(prev => !prev)
-
+                setIsFav((prev) => !prev);
               }}
               className="favoriteEventBtn"
             ></button>
@@ -60,19 +59,19 @@ function Event({ event, favoriteEvents, userProfile, setFavList}) {
               onClick={(e) => {
                 e.stopPropagation();
                 addFavorite(event);
-                setIsFav(prev => !prev)
+                setIsFav((prev) => !prev);
               }}
               className="heart"
             ></button>
           )
-        ):(
+        ) : (
           <button
-              onClick={(e) => {
-                e.stopPropagation();
-                navigate('/profile/')
-              }}
-              className="heart"
-            ></button>
+            onClick={(e) => {
+              e.stopPropagation();
+              navigate("/profile/");
+            }}
+            className="heart"
+          ></button>
         )}
       </>
     );
@@ -90,10 +89,14 @@ function Event({ event, favoriteEvents, userProfile, setFavList}) {
         <div className="eventDescription">
           <h2 className="eventTitle">{event.name}</h2>
           <h3 className="eventDate">{event.dates.start.localDate}</h3>
-          <h5 className="eventLocation">
-            At {event._embedded.venues[0].name},{" "}
-            {event._embedded.venues[0].state.name}
-          </h5>
+          {event._embedded ? (
+            <h5 className="eventLocation">
+              At {event._embedded.venues[0].name},{" "}
+              {event._embedded.venues[0].state.name}
+            </h5>
+          ) : (
+            <h5 className="eventLocations">Location TBD</h5>
+          )}
         </div>
         <div className="eventFooter">
           <h5 className="eventPrice">
