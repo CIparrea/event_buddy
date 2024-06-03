@@ -8,6 +8,7 @@ import { getSavedEvent } from "../../Services/events.js";
 function FavoritesPage({ userProfile, setUserProfile, favoriteEvents }) {
   const [savedEvents, setSavedEvents] = useState([]);
   const [events, setEvents] = useState([]);
+  const [favList, setFavList] = useState(true)
 
   useEffect(() => {
     const fetchSavedEvents = async () => {
@@ -19,9 +20,9 @@ function FavoritesPage({ userProfile, setUserProfile, favoriteEvents }) {
         console.error("Error fetching saved events:", error);
       }
     };
-
     fetchSavedEvents();
-  }, []);
+    console.log("this is the first fetch without a click")
+  }, [favList]);
 
   useEffect(() => {
     const fetchEventInfo = async () => {
@@ -45,8 +46,6 @@ function FavoritesPage({ userProfile, setUserProfile, favoriteEvents }) {
     fetchEventInfo();
   }, [savedEvents]);
 
-  console.log(events);
-
   return (
     <div className="favoritesPage">
       <Navbar
@@ -55,8 +54,8 @@ function FavoritesPage({ userProfile, setUserProfile, favoriteEvents }) {
         setUserProfile={setUserProfile}
       />
       <div className="favoriteEvents">
-      {events && events.map((event) => (
-          <Event event={event} key={event.id} favoriteEvents={favoriteEvents} userProfile = {userProfile}/>
+      {events && events?.map((event) => (
+          <Event event={event} key={event.id} favoriteEvents={favoriteEvents} userProfile = {userProfile} setFavList={setFavList} />
         ))}
       </div>
     </div>

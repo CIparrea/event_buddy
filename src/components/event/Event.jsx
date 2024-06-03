@@ -1,10 +1,15 @@
-import React from "react";
+import {useEffect, useState} from "react";
 import "./Event.css";
 import { useNavigate } from "react-router-dom";
 import { deleteSavedEvents, updateSavedEvents } from "../../Services/users.js";
 
-function Event({ event, favoriteEvents, userProfile }) {
+function Event({ event, favoriteEvents, userProfile, setFavList}) {
   const navigate = useNavigate();
+  const [isFav, setIsFav] = useState(false)
+
+  useEffect(() => {
+    setIsFav(favoriteEvents.includes(event.id))
+  },[])
 
   function outerButtonClick() {
     navigate(`/events/${event.id}`, { state: event });
@@ -23,6 +28,7 @@ function Event({ event, favoriteEvents, userProfile }) {
     try {
       await deleteSavedEvents(event);
       favoriteEvents.splice(favoriteEvents.indexOf(event.id));
+      setFavList(prev => !prev)
     } catch (error) {
       console.error("Error deleting saved event: ", error);
     }
@@ -39,11 +45,13 @@ function Event({ event, favoriteEvents, userProfile }) {
     return (
       <>
         {userProfile? (
-          favoriteEvents.includes(event.id) ? (
+          isFav ? (
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 removeFavorite(event);
+                setIsFav(prev => !prev)
+
               }}
               className="favoriteEventBtn"
             ></button>
@@ -52,6 +60,7 @@ function Event({ event, favoriteEvents, userProfile }) {
               onClick={(e) => {
                 e.stopPropagation();
                 addFavorite(event);
+                setIsFav(prev => !prev)
               }}
               className="heart"
             ></button>

@@ -49,18 +49,22 @@ function App() {
     };
     fetchData();
 
+  }, []);
 
+  useEffect(() => {
     const fetchFavorites = async () => {
-      const favoriteEventsfetched = await getSavedEvents();
-      console.log("favorite events", favoriteEventsfetched);
-      setFavoriteEvents(favoriteEventsfetched);
+      if(userProfile){
+        const favoriteEventsfetched = await getSavedEvents();
+        console.log("favorite events", favoriteEventsfetched);
+        setFavoriteEvents(favoriteEventsfetched);
+      }else{
+
+      }
     };
 
-    if(userProfile){
-      fetchFavorites();
-    }
+    fetchFavorites();
+  }, [userProfile]);
 
-  }, []);
 
   useEffect(() => {
     const fetchEvents = async () => {

@@ -1,15 +1,19 @@
 .favoritesPage {
   width: 100%;
   height: 100%;
-  display: block;
-  overflow: auto;
+  display: flex;
+  overflow: hidden;
+}
+
+.favoriteEvents{
+  display: flex;
+  flex-wrap: wrap;
   box-sizing: border-box;
+  overflow: scroll;
   padding: 12vh 0 0 0;
   color: #001d3d;
-  display: flex;
   justify-content: top;
   align-items: top;
-  flex-wrap: wrap;
 }
 
 @media (max-width: 760px) {
@@ -20,7 +24,7 @@
     align-items: top;
   }
 
-  .favoritesContainer {
+  .favoritesEvents {
     border: transparent;
     box-shadow: none;
     flex-direction: column;

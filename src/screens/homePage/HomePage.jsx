@@ -19,32 +19,32 @@ function HomePage({
 }) {
 
   const [modal, setModal] = useState(true)
+  const [isFav, setIsFav] = useState(false)
   
   useEffect(() => {
     setTimeout(() => {
       setModal(false)
     },2000);
-  }, [spotlightEvents]); 
+    setIsFav(favoriteEvents.includes(spotlightEvents?.id))
+  }, [spotlightEvents])
 
   const navigate = useNavigate();
-  // console.log(spotlightEvents)
 
   function outerButtonClick() {
     navigate(`/events/${spotlightEvents.id}`, { state: spotlightEvents });
   }
 
   const addFavorite = async () => {
-    // event.stopPropagation();
     try {
       await updateSavedEvents(spotlightEvents);
       favoriteEvents.push(spotlightEvents.id);
+      console.log("new favorites", favoriteEvents)
     } catch (error) {
       console.error("Error updating saved events:", error);
     }
   };
 
   const removeFavorite = async () => {
-    // event.stopPropagation();
     try {
       await deleteSavedEvents(spotlightEvents);
       favoriteEvents.splice(favoriteEvents.indexOf(spotlightEvents.id));
@@ -64,25 +64,29 @@ function HomePage({
     return (
       <>
       {userProfile? (
-      favoriteEvents.includes(spotlightEvents.id) ? (
-        <button
-          onClick={() => {
-            removeFavorite(spotlightEvents);
-          }}
-          className="favoriteEventPageHeartBtn"
-        ></button>
-      ) : (
-        <button
-          onClick={() => {
-            addFavorite(spotlightEvents);
-          }}
-          className="eventPageHeart"
-        ></button>
-      ) 
+        isFav? (
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              removeFavorite(spotlightEvents);
+              setIsFav(prev => !prev)
+            }}
+            className="favoriteEventPageHeartBtn"
+          ></button>
+        ) : (
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              addFavorite(spotlightEvents);          
+              setIsFav(prev => !prev)
+            }}
+            className="eventPageHeart"
+          ></button>
+        )
       ):(
       <button
-        onClick={(event) => {
-          event.stopPropagation()
+        onClick={(e) => {
+          e.stopPropagation()
           navigate('/profile/')
         }}
         className="eventPageHeart"
@@ -152,6 +156,7 @@ function HomePage({
                     event={event}
                     key={event.id}
                     favoriteEvents={favoriteEvents}
+                    userProfile = {userProfile}
                   />
                 );
               })}
@@ -171,6 +176,7 @@ function HomePage({
                     event={event}
                     key={event.id}
                     favoriteEvents={favoriteEvents}
+                    userProfile = {userProfile}
                   />
                 );
               })}
