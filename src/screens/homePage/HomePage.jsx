@@ -38,11 +38,10 @@ function HomePage({
     try {
       await updateSavedEvents(spotlightEvents);
       favoriteEvents.push(spotlightEvents.id);
-      console.log("new favorites", favoriteEvents)
     } catch (error) {
       console.error("Error updating saved events:", error);
     }
-  };
+  }; 
 
   const removeFavorite = async () => {
     try {

@@ -21,7 +21,6 @@ function FavoritesPage({ userProfile, setUserProfile, favoriteEvents }) {
       }
     };
     fetchSavedEvents();
-    console.log("this is the first fetch without a click")
   }, [favList]);
 
   useEffect(() => {

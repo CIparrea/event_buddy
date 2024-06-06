@@ -31,7 +31,6 @@ function SearchPage({
   useEffect(() => {
     setTimeout(() => {
       setModal(false)
-      console.log("finished loading")
     },2000);
   }, [spotlightEvents]);  
 

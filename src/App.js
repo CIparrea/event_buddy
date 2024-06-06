@@ -39,10 +39,6 @@ function App() {
       const musicEventsfetched = await getMusicEvents();
       const showsEventsfetched = await getShowsEvents();
 
-      console.log("sportsevents", sportsEventsfetched);
-      console.log("musicevents", musicEventsfetched);
-      console.log("showsevents", showsEventsfetched);
-
       setSportsEvents(sportsEventsfetched);
       setMusicEvents(musicEventsfetched);
       setShowsEvents(showsEventsfetched);
@@ -55,7 +51,6 @@ function App() {
     const fetchFavorites = async () => {
       if(userProfile){
         const favoriteEventsfetched = await getSavedEvents();
-        console.log("favorite events", favoriteEventsfetched);
         setFavoriteEvents(favoriteEventsfetched);
       }else{
 

@@ -30,7 +30,6 @@ function SearchBar({ show, favoriteEvents, userProfile }) {
   useEffect(() => {
     if (searchedEvents.length > 0) {
       setSearchModal(true);
-      console.log("Searched Events:", searchedEvents);
     } else {
       setSearchModal(false);
     }
