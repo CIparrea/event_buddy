@@ -3,4 +3,7 @@
   [headers.values]
     Access-Control-Allow-Origin = "https://event-buddy-b351aabbc099.herokuapp.com"
 
-/api/*  https://event-buddy-b351aabbc099.herokuapp.com/:splat  200
+[[redirects]]
+  from = "/api/*"
+  to = "https://event-buddy-b351aabbc099.herokuapp.com/:splat"
+  status = 200
