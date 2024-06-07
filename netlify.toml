@@ -1,6 +1,6 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Access-Control-Allow-Origin = "https://event-buddy-b351aabbc099.herokuapp.com/api"
+    Access-Control-Allow-Origin = "https://event-buddy-b351aabbc099.herokuapp.com"
 
-/api/*  https://event-buddy-b351aabbc099.herokuapp.com/api/:splat  200
+/api/*  https://event-buddy-b351aabbc099.herokuapp.com/:splat  200
