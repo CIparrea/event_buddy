@@ -125,6 +125,15 @@
         width: 10vh;
         margin: 2vh 0.3vh 1vh;
     }
+
+    .filtersBtnActive{
+        flex-direction: column;
+        height: 10vh;
+        width: 10vh;
+        margin: 2vh 0.3vh 1vh;
+    }
+
+
     .filtersTitle{
         margin: 0;
     }
