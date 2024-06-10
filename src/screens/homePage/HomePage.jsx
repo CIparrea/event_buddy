@@ -128,6 +128,7 @@ function HomePage({
             <div className="categoryIcon" id="musicIcon"></div>
             <h1 className="categoryTitle"> Music</h1>
           </div>
+          <div className="lineForCategories"></div>
           <div className="homeCategory">
             {musicEvents &&
               musicEvents?.map((event) => {
