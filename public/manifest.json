@@ -1,5 +1,5 @@
 {
-  "short_name": "EB",
+  "short_name": "Event Buddy",
   "name": "Event Buddy",
   "icons": [
     {
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "green-yellow"
+  "theme_color": "#ADFF2F",
+  "background_color": "#ADFF2F"
 }
