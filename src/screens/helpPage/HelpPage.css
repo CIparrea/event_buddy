@@ -1,10 +1,172 @@
 .helpPage{
-    width: 100%;
-    height: 100%;
-    display: block;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
     overflow: auto;
     box-sizing: border-box;
     padding: 8vh 0 0 0;
     color: #001D3D;
+    background-image: url("../../../public/img/helpPageBackground.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.logoBtnHelp{
+    background: url(../../../public/img/logoBlack.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 20vh;
+    aspect-ratio: 1/1;
+    background-color: transparent;
+    border: transparent;
+    padding: 0;
+    color:white;
+    font-size: 1rem;
+    transition: transform 0.2s ease-in;
+}
+
+.logoBtnHelp:hover{
+    background: url(../../../public/img/logoGreen.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 20vh;
+    aspect-ratio: 1/1;
+    background-color: transparent;
+    border: transparent;
+    padding: 0;
+    color:white;
+    font-size: 1rem;
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.profile{
+    background-color: white;
+    height: 83vh;
+    width: 30vw;
+    box-shadow: 12px 12px 12px 1px rgba(0, 0, 0, 0.217);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.logoHelpPageCenter{
+    height: 75vh;
+    width: 15vw;
+    justify-content: center;
+    align-items: start;
+    text-align: center;
+}
+
+.imageProfileAmbre{
+    background: url(../../../public/img/Ambre.png);
+    height: 60vh;
+    width: 25vw;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    transition: 0.3s ease-in-out;
+}
+ 
+.imageProfileCesar{
+    background: url(../../../public/img/Cesar.png);
+    height: 60vh;
+    width: 25vw;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    transition: 0.3s ease-in-out;
+}
+
+.imageProfileCesar:hover{
+    background-size: 105%;
+}
+
+.imageProfileAmbre:hover{
+    background-size: 105%;
+}
+
+.linkPortfoliosHelp{
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+.linkPortfoliosHelp h1{
+    margin: 10px 0 2px 0;
+    padding: 0;
+    color: black;
+    transition: 0.3s ease-in-out;
+}
+
+.linkPortfoliosHelp h1:hover{
+    color:chartreuse
+}
+
+.logosProfiles{
+    width: 15vw;
+    height: 8vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.socialLogoHelp{
+    height: 6vh;
+    aspect-ratio: 1/1;
+}
+
+#github{
+    background: url(../../../public/img/gitHubLogoGray.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    transition: 0.3s ease-in-out;
+}
+
+#github:hover{
+    background: url(../../../public/img/githubLogoBlack.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+#linkedIn{
+    background: url(../../../public/img/linkedInLogoGray.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    transition: 0.3s ease-in-out;
+}
+
+#linkedIn:hover{
+    background: url(../../../public/img/linkedInLogoBlack.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+#gmail{
+    background: url(../../../public/img/emailLogoGray.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    transition: 0.3s ease-in-out;
+}
+
+#gmail:hover{
+    background: url(../../../public/img/emailLogoBlack.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
 }
 
