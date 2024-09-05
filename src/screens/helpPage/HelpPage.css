@@ -90,6 +90,12 @@
 .imageProfileAmbre:hover{
     background-size: 105%;
 }
+.textAndLinksContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
 .linkPortfoliosHelp{
     justify-content: center;
@@ -170,3 +176,75 @@
     background-position: center;
 }
 
+
+@media (min-width: 760px) {
+    #imgCesarMobile{
+        display: none;
+    }
+}
+
+
+@media (max-width: 760px) {
+    .logoHelpPageCenter{
+    display: none;
+    }
+    .helpPage{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        justify-content: space-evenly;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .profile{
+        width: 90vw;
+        height: 30vh;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        box-shadow: none;
+    }
+
+    .imageProfileAmbre{
+        height: 40vh;
+        width:40vw;
+    }
+     
+    .imageProfileCesar{
+        height: 40vh;
+        width: 40vw;
+    }
+    
+    .logosProfiles{
+        width: 10vw;
+        height: 6vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-around;
+    }
+    
+    .socialLogoHelp{
+        height: 3vh;
+        aspect-ratio: 1/1;
+        margin: 0 2vw;
+    }
+
+
+    .linkPortfoliosHelp h1{
+        margin: 10px 0 2px 0;
+        width: 45vw;
+        padding: 0;
+        color: black;
+        transition: 0.3s ease-in-out;
+    }
+
+    #imgCesarDesktop{
+        display: none;
+    }
+
+}

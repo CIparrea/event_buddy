@@ -11,8 +11,11 @@ function HelpPage({userProfile, setUserProfile}) {
       <div className='profile'>
       <a href="https://github.com/ambretate" target="_blank" className='linkPortfoliosHelp'>
         <div className='imageProfileAmbre'></div> 
-        <h1>Ambre Tate</h1>
       </a>
+      <div className="textAndLinksContainer">
+        <a href="https://github.com/ambretate" target="_blank" className='linkPortfoliosHelp'>
+          <h1>Ambre Tate</h1>
+        </a>
         <div className='logosProfiles'>
           <a href="https://github.com/ambretate" target="_blank">
             <div className='socialLogoHelp' id="github"></div> 
@@ -24,6 +27,7 @@ function HelpPage({userProfile, setUserProfile}) {
             <div className='socialLogoHelp' id="gmail"></div> 
           </a>
         </div>
+      </div>
       </div>
 
       <div className='logoHelpPageCenter'>
@@ -37,21 +41,28 @@ function HelpPage({userProfile, setUserProfile}) {
         </div>
 
       <div className='profile'>
-        <a href="https://cesariparrea.com" target="_blank" className='linkPortfoliosHelp'>
-          <div className='imageProfileCesar'></div> 
-        <h1>Cesar Iparrea</h1>
+        <a href="https://cesariparrea.com" target="_blank" className='linkPortfoliosHelp' >
+          <div className='imageProfileCesar' id="imgCesarDesktop"></div> 
         </a>
-        <div className='logosProfiles'>
-        <a href="https://github.com/CIparrea" target="_blank">
-          <div className='socialLogoHelp' id="github"></div> 
-        </a>
-        <a href="https://www.linkedin.com/in/cesariparrea/" target="_blank">
-          <div className='socialLogoHelp' id="linkedIn"></div> 
-        </a>
-        <a href="mailto:iparreacesar@gmail.com">
-          <div className='socialLogoHelp' id="gmail"></div> 
-        </a>
+        <div className="textAndLinksContainer">
+          <a href="https://cesariparrea.com" target="_blank" className='linkPortfoliosHelp'>
+            <h1>Cesar Iparrea</h1>
+          </a>
+          <div className='logosProfiles'>
+          <a href="https://github.com/CIparrea" target="_blank">
+            <div className='socialLogoHelp' id="github"></div> 
+          </a>
+          <a href="https://www.linkedin.com/in/cesariparrea/" target="_blank">
+            <div className='socialLogoHelp' id="linkedIn"></div> 
+          </a>
+          <a href="mailto:iparreacesar@gmail.com">
+            <div className='socialLogoHelp' id="gmail"></div> 
+          </a>
+          </div>
         </div>
+        <a href="https://cesariparrea.com" target="_blank" className='linkPortfoliosHelp' >
+          <div className='imageProfileCesar' id="imgCesarMobile"></div> 
+        </a>
       
       </div>
   </div>
