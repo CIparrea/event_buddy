@@ -92,7 +92,8 @@ function Event({ event, favoriteEvents, userProfile, setFavList }) {
           {event._embedded ? (
             <h5 className="eventLocation">
               At {event._embedded.venues[0].name},{" "}
-              {event._embedded.venues[0].state.name}
+              {event._embedded.venues[0].city.name},{" "}
+              {event._embedded.venues[0].state?.name || event._embedded.venues[0].country.name}
             </h5>
           ) : (
             <h5 className="eventLocations">Location TBD</h5>
